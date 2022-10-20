@@ -22,7 +22,28 @@
     float: left;
     height: 100px;
 
+}
+
+.card{
+    width: 40%;
+    flex: 0 1 calc(25% - 1em);
 
 
+}
 
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.cardbox{
+    padding: 2px 16px;
+    height: 300px;
+
+}
+
+.imgd{
+ 
 }
