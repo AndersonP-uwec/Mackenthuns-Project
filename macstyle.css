@@ -1,9 +1,25 @@
 .container{
      /* lol */
+     background-color: aliceblue;
+     height: 100vh;
+     width: 100vw;
+     position: relative;
 }
 
 .header{
-    background-color: #203153
-    
+    background-color: #203153;
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
+
+
+}
+
+.image{
+    display: float;
+    float: left;
+
+
+
 
 }
