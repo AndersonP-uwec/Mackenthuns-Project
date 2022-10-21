@@ -1,19 +1,18 @@
 .container{
-     /* lol */
      background-color: aliceblue;
      height: 100vh;
      width: 100vw;
-     position: relative;
+     justify-content: space-around;
+     align-content: space-around;
 }
 
 .header{
     background-color: #203153;
     width: 100vw;
     height: 20vh;
-    position: absolute;
+    position:relative;
     display:flex;
     align-items: center;
-
 
 }
 
@@ -21,12 +20,12 @@
     display: float;
     float: left;
     height: 100px;
-
 }
 
-.card{
+.card{ 
     width: 40%;
-    flex: 0 1 calc(25% - 1em);
+    flex: 0 1 calc(20% - 2em);
+    background-color: white;
 
 
 }
@@ -35,15 +34,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 5%;
 
 }
 
 .cardbox{
     padding: 2px 16px;
-    height: 300px;
+    height: 40%;
 
 }
 
 .imgd{
+    width: 100%;
  
 }
