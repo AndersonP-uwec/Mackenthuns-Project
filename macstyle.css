@@ -27,7 +27,6 @@
     flex: 0 1 calc(20% - 2em);
     background-color: white;
 
-
 }
 
 .cards{
@@ -41,7 +40,7 @@
 .cardbox{
     padding: 2px 16px;
     height: 40%;
-
+    
 }
 
 .imgd{
