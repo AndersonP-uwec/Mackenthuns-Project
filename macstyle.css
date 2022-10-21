@@ -30,6 +30,8 @@
     transition: 0.3s;
     border-radius: 10px;
     margin-bottom: 2em;
+    color: #54595F;
+    font-family: lato;
 }
 
 .card:hover {
@@ -50,7 +52,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
 .imgd{
