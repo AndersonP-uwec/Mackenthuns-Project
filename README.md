@@ -4,5 +4,6 @@ global colors
     lighter blue: #9FC9EB
     light green: #4A8235
     dark green: #406D2C
+    text grey: #54595F
 
-if possible, our global font should be 'lato'
+global font: 'lato'

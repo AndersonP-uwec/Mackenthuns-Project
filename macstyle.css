@@ -26,7 +26,8 @@
     width: 40%;
     flex: 0 1 calc(20% - 2em);
     background-color: white;
-
+    color: #54595F;
+    font-family: lato;
 }
 
 .cards{
