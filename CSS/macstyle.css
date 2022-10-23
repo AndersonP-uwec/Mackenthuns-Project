@@ -97,6 +97,6 @@ button{
 }
 @media screen and (min-width: 500px) {
     .card {
-        width: calc(24% - );
+        width: 50%;
     }
   }
