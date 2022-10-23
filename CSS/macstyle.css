@@ -12,14 +12,33 @@
     height: 20vh;
     position:relative;
     display:flex;
-    align-items: center;
-
-}
+    align-items:center;
+    justify-content:space-around;
+ }
 
 .headerlogo{
     display: float;
     float: left;
     height: 100px;
+}
+
+.cart{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    top: 10px;
+    background-color: #9FC9EB;
+}
+
+.cart:hover{
+    border: 3px solid black;
+    background-color: #406D2C;
+}
+
+.submit:hover{
+    border: 3px solid black;
+    background-color: #4A8235;
 }
 
 .card{ 
