@@ -1,6 +1,6 @@
 .container{
      background-color: aliceblue;
-     height: 100vh;
+     height: 120vh;
      width: 100vw;
      justify-content: space-around;
      align-content: space-around;
@@ -20,6 +20,17 @@
     display: float;
     float: left;
     height: 100px;
+}
+
+.footer{
+    background-color: #203153;
+    width: 100vw;
+    height: 20vh;
+    position:absolute;
+    display:flex;
+    align-items: center;
+    top: 120vh;
+
 }
 
 .card{ 
