@@ -59,3 +59,29 @@
     width: 100%;
  
 }
+
+@media screen and (max-width: 60em ){
+    .cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .card{
+        flex: 0 1 calc(50% - 1em);
+    }
+
+}
+
+@media screen and (max-width: 40em ){
+    .cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .card{
+        flex: 0 1 calc(100% - 1em);
+    }
+
+}
