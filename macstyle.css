@@ -26,10 +26,10 @@
     background-color: #203153;
     width: 100vw;
     height: 20vh;
-    position:absolute;
+    position:fixed;
     display:flex;
-    align-items: center;
-    top: 120vh;
+    bottom:0px;
+    left: 0px;
 
 }
 
