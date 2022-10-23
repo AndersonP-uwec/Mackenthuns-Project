@@ -1,0 +1,91 @@
+.container{
+     background-color: aliceblue;
+     height: 100%;
+     width: 100%;
+     justify-content: space-around;
+     align-content: space-around;
+}
+
+.header{
+    background-color: #203153;
+    width: 100vw;
+    height: 20vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+ }
+
+.headerlogo{
+    display: float;
+    float: left;
+    height: 100px;
+}
+
+.cart{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    top: 10px;
+    background-color: #9FC9EB;
+}
+
+.cart:hover{
+    border: 3px solid black;
+    background-color: #406D2C;
+}
+
+.submit:hover{
+    border: 3px solid black;
+    background-color: #4A8235;
+}
+
+.card{ 
+    width: 40%;
+    flex: 0 1 calc(20% - 2em);
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    margin-bottom: 2em;
+    color: #54595F;
+    font-family: lato;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
+
+}
+
+.cardbox{
+    padding: 10px 10px;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imgd{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+button{ 
+    background-color: #4bc15d; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    width: 50px;
+}
