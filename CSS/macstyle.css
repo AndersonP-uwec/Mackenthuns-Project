@@ -1,3 +1,7 @@
+h1, h2, p{
+    font-family: lato;
+}
+
 .container{
      background-color: aliceblue;
      height: 100%;
@@ -90,7 +94,6 @@
     height: 20vh;
     position:relative;
     display:flex;
-    align-items:center;
     justify-content:space-around;
     bottom: 0;
 }
