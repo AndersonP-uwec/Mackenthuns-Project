@@ -85,7 +85,14 @@
 
 
 .footer{
-    
+    background-color: #203153;
+    width: 100vw;
+    height: 20vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    bottom: 0;
 }
 
 button{ 
