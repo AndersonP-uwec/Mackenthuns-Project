@@ -1,3 +1,7 @@
+h1, h2{
+    font-family: lato;
+}
+
 .container{
      background-color: aliceblue;
      height: 120vh;
@@ -60,7 +64,8 @@
 }
 
 .depimg{
-    width: 10px;
+    max-width: 100px;
+    height: auto;
 }
 
 @media screen and (max-width: 60em ){
