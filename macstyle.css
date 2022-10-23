@@ -57,7 +57,10 @@
 
 .imgd{
     width: 100%;
- 
+}
+
+.depimg{
+    width: 10px;
 }
 
 @media screen and (max-width: 60em ){
