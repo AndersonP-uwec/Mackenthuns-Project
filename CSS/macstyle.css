@@ -94,4 +94,8 @@ button{
     text-align: center;
     color: white;
 }
-
+@media screen and (min-width: 800px){
+    .card{
+        width: calc(100% - 50%);
+    }
+}
