@@ -89,6 +89,9 @@ button{
     font-size: 15px;
     width: 50px;
 } 
-.meat:link{
+.meat a:link, a:visited{
     text-decoration: none;
+    text-align: center;
+    color: white;
 }
+
