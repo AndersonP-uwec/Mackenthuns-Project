@@ -115,5 +115,9 @@ button{
 @media screen and (max-width: 600px) {
     .card {
         flex: 0 1 50%;
+        justify-content: space-evenly;
     }
   }
+@media screen and (max-width: 400px) {
+
+}
