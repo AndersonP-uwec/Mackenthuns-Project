@@ -107,6 +107,10 @@ h1, h2, p{
     bottom: 0;
 }
 
+p{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 button{ 
     background-color: #4bc15d; 
     border: none;
