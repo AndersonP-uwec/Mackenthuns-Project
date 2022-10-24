@@ -3,7 +3,6 @@ h1, h2, p{
 }
 
 .container{
-     background-color: aliceblue;
      height: 100%;
      width: 100%;
      justify-content: space-around;
@@ -55,7 +54,6 @@ h1, h2, p{
     margin-bottom: 2em;
     color: #54595F;
     font-family: lato;
-    align-items: center;
 }
 
 .card:hover {
@@ -66,8 +64,6 @@ h1, h2, p{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10%;
-
 }
 
 .cardbox{
@@ -87,6 +83,11 @@ h1, h2, p{
     width: 50%;
 }
 
+.depbody{
+    padding: 20px;
+    text-align: center;
+}
+
 
 .footer{
     background-color: #203153;
@@ -95,6 +96,7 @@ h1, h2, p{
     position:relative;
     display:flex;
     justify-content:space-around;
+    align-items: center;
     bottom: 0;
 }
 
