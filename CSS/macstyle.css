@@ -54,6 +54,7 @@ h1, h2, p{
     margin-bottom: 2em;
     color: #54595F;
     font-family: lato;
+    align-items: center;
 }
 
 .card:hover {
@@ -64,6 +65,8 @@ h1, h2, p{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 5%;
+
 }
 
 .cardbox{
@@ -72,6 +75,8 @@ h1, h2, p{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .imgd{
@@ -109,7 +114,7 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 15px;
-    width: 50px;
+    width: 100px;
 } 
 .meat a:link, a:visited{
     text-decoration: none;
