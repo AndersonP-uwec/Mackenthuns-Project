@@ -1,4 +1,4 @@
-h1, h2, p{
+h1, h2, p, body{
     font-family: lato;
 }
 
@@ -26,6 +26,26 @@ h1, h2, p{
     display: float;
     float: left;
     height: 100px;
+}
+
+#headerbutton{ 
+    background-color: #203153; 
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: lato;
+    width: 150px;
+    border-radius: 5px;
+} 
+
+#headerbutton a:hover{
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #1b263d;
+    color: #4A8235;
+    border: 2px solid #4A8235;
+    border-radius: 5px;
 }
 
 .cart{
@@ -98,13 +118,21 @@ h1, h2, p{
 
 .footer{
     background-color: #203153;
+    color: white;
     width: 100vw;
-    height: 20vh;
+    height: 15vh;
     position:relative;
     display:flex;
-    justify-content:space-around;
-    align-items: center;
+    align-items:center;
+    float: left;
+    padding: 20px 40px;
     bottom: 0;
+}
+
+.footerlogo{
+    display: float;
+    float: left;
+    height: 100px;
 }
 
 p{
@@ -121,7 +149,9 @@ button{
     display: inline-block;
     font-size: 15px;
     width: 100px;
+    border-radius: 5px;
 } 
+
 .meat a:link, a:visited{
     text-decoration: none;
     text-align: center;
@@ -130,10 +160,11 @@ button{
 
 @media screen and (max-width: 600px) {
     .card {
-        flex: 0 1 50%;
+        flex: 0 1 49%;
         justify-content: space-evenly;
     }
   }
+
 @media screen and (max-width: 400px) {
 
 }
