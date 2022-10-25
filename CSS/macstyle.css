@@ -38,7 +38,7 @@ h1, h2, p, body{
     border-radius: 5px;
 } 
 
-#headerbutton a:hover{
+#headerbutton a:hover, a:visited{
     width: 150px;
     text-decoration: none;
     text-align: center;
