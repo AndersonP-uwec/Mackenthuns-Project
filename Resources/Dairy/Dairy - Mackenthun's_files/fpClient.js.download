@@ -1,0 +1,426 @@
+(function($) {
+	window.fpClient = {
+		store: {}
+		,user: {}
+        //,newUser: $.cookie('cn-new-user') || true
+		,URLs: {
+			myFavoritesUrl: user_trailingslashit('/shop') + '#!/?filter=is_favorite'
+            ,storeLocator: user_trailingslashit('/store/store-locator')
+		}
+		,init: function () {
+            this.initMobileHeader();
+			this.initMyFavorites();
+		}
+        ,initMyFavorites: function() {
+            var $menuFavorites = $('#menu-header-menu');
+
+            $menuFavorites
+                .find('.nav-my-favorites a')
+                .attr('href', this.URLs.myFavoritesUrl)
+                .append('&nbsp;<span class="fp-icon-heart-plus"></span>');
+
+            $('#top-my-favorites').attr('href', this.URLs.myFavoritesUrl);
+        }
+		,onFreshopInit: function(){
+			var pref = $.cookie('pref') || {},
+                event = window.hasTouch ? 'touch' : 'click',
+                $search = $('#header .header-wrapper .search');
+
+            if(pref.showSearch) $search.trigger(event);
+
+            if(window.freshop) {
+                freshop.ui
+                    //.on('loaded', function(event) {
+                    //    fpClient.storeChanged(event, fpClient.store);
+                    //})
+
+                    .on('search', function () {
+                        var $body = $(document.body);
+                        $body.removeClass('mobile-menu-active');
+                    })
+
+                    .on('rendered', '#products-ad-skybox', function (event) {
+                        if (window.isSmall) return;
+
+                        var $productsAdSkybox = $('#products-ad-skybox');
+                        if (!$productsAdSkybox.length) return;
+
+                        var $col2 = $productsAdSkybox.parent(),
+                            $col1 = $col2.prev(),
+                            moduleId = $col1.find('> .fp-module.fp-module-view').first().attr('id');
+
+                        if (!moduleId) return;
+
+                        if ($col2.children().height()) {
+                            $col1.prop('className', 'col-md-10');
+                            $col2.prop('className', 'col-sm-12 col-md-2 col-skybox-ad');
+                        }
+                        else {
+                            $col1.prop('className', 'col-xs-12');
+                            $col2.prop('className', 'col-xs-12 col-skybox-ad');
+                        }
+
+                        freshop.ui.on('loaded', function () {
+                            freshop.ui.trigger('#' + moduleId, 'resize');
+                            freshop.ui.trigger('#products-ad-skybox', 'resize');
+                        });
+                    });
+
+                freshop
+                    .on('storeChanged', fpClient.storeChanged)
+                    .on('storeLoaded', fpClient.storeChanged)
+                    .on('circularLoaded', function (event, circular) {
+                        var $title = $('#circular-title')
+                            , startDate = circular.display_start_date ? circular.display_start_date : circular.start_date
+                            , endDate = circular.display_end_date ? circular.display_end_date : circular.end_date;
+
+                        if ($title.length) {
+                            $title.find('.start-date').text(fpClientUtil.formatDate(startDate));
+                            $title.find('.end-date').text(fpClientUtil.formatDate(endDate));
+                            $title.find('> span').css('visibility', '');
+                        }
+                    });
+            }
+            else {
+                fpClient.storeChanged();
+            }
+		}
+        ,initMobileHeader: function(){
+            var eventType = window.hasTouch ? 'touchstart.minilist.fc' : 'click.minilist.fc'
+                ,$mobileMenu = $('.mobile-header-wrapper');
+
+            $mobileMenu
+                .off()
+                .on(eventType, '#navbar-toggle', function(event) {
+                    event.preventDefault();
+                    if($(document.body).hasClass('mobile-menu-active')) {
+                        var $navWrapper = $('#mobile-nav-wrapper')
+                            ,$currentMenu = $navWrapper.data('currentMenu')
+                            ,level = $navWrapper.data('level') || 0;
+                        if(level == 0) navigation.toggleNav();
+                        else $navWrapper.trigger('click');
+                        return;
+                    }
+                    navigation.toggleNav();
+                })
+                .on(eventType, '.logo', function(event) {
+                    if($(document.body).hasClass('mobile-menu-active')) {
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
+                        navigation.toggleNav();
+                    }
+                })
+                .on(eventType, '.mobile-search-icon', function (event) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+
+                    if(window.freshop) {
+                        var pref = $.cookie('pref') || {}
+                            ,$headerSearch = $('.mobile-header-wrapper .mobile-search')
+                            ,$mobileSearchInput = $headerSearch.find('[name=fp-input-search]');
+
+                        if($headerSearch.filter(':visible').length) {
+                            pref.showSearch = false;
+                            $headerSearch.slideUp(function() {
+                                $headerSearch.show().addClass('hidden-xs hidden-sm');
+                            });
+                        }
+                        else {
+                            pref.showSearch = true;
+                            $headerSearch.removeClass('hidden-xs hidden-sm');
+                            freshop.trigger('mediaWidthChange');
+                            $headerSearch.hide().slideDown(function() {
+                                //$mobileSearchInput.blur();
+                                //var origValue = $mobileSearchInput.val();
+                                //$mobileSearchInput.val('').focus().val(origValue);
+                            });
+                        }
+                        $.cookie('pref', pref, {path: '/', secure: window.location.protocol == 'https:'});
+                    }
+                });
+        }
+		,storeChanged: function(event, store){
+            var href,
+                $anchor = $('#mobile-selected-store > .nav-my-store > a, .menu-footer-menu-col-1-container .nav-my-store > a'),
+                $mainNavMyStore = $('#main-nav').find('.nav-my-store > a'),
+                $mobileStoreLink = $('#mobile-selected-store'),
+                $headerSelectStore = $('.nav-my-store > .dropdown > .link-my-store'),
+                $headerMyStore = $('.nav-my-store > .link-my-store-primary'),
+                oldStore = fpClient.store;
+            
+            //fpCheckWeeklyAd.check();
+
+            var storeId = store && store.id,
+                pref = $.cookie('pref') || {};
+            pref.store_id = storeId;
+            $.cookie('pref', pref, {path: '/', secure: window.location.protocol == 'https:'});
+
+            if(storeId) {
+                if(store.name) {
+                    $('.my-store-name').text(store.name);
+        
+                    href = store.url;
+                    //$anchor.text(store.name);
+                    $headerSelectStore.find('.name').text(store.name);
+                    $mobileStoreLink.find('a').text(store.name);
+
+                    //print view, adding address
+                    if(window.freshop) {
+                        var $storeInfo = $('#store-main-info, #footer-store-address');
+                        var storeAddress = freshop.ui.encodeForHtml(store.address_1);
+                        if (store.address_2) storeAddress += ',' + freshop.ui.encodeForHtml(store.address_2);
+                        storeAddress += '<br />' + freshop.ui.encodeForHtml(store.city) + ', ' + freshop.ui.encodeForHtml(store.state) + ' ' + freshop.ui.encodeForHtml(store.postal_code);
+                        $storeInfo.html('<div class="store-name">' + freshop.ui.encodeForHtml(store.name) + '</div>' + storeAddress);
+                    }
+
+                    fpClient.store = store;
+                    
+                    $headerSelectStore.attr('href', 'javascript:;').attr('data-href', href);
+                    $mobileStoreLink.removeClass('hidden');
+                    fpClient.setMyStoreBox(store);
+                }
+            }
+            else {
+                href = fpClient.URLs.storeLocator;
+                //$anchor.text("My Store");
+                // $headerSelectStore.find('.name').text('Select Store');
+                // $mobileStoreLink.find('.nav-my-store a').text('Select Store');
+                fpClient.setMyStoreBox(null);
+            }
+
+            fpClient.setStoreLinks($anchor.add($mainNavMyStore).add($headerMyStore), href);
+
+            if((!storeId || !oldStore.id || (oldStore.id && oldStore.id != storeId))) {
+                if(window.freshop) {
+                    freshop.ui.getNavigation(navigation.initMenu.bind(navigation));
+                }
+
+                if(wpConfig.enableDynamicHome) {
+                    var deferredPageLoad,
+                        deferredFreshopLoad,
+                        promiseLoadPage;
+
+                    if (window.freshop && freshop.ui) {
+                        deferredFreshopLoad = $.Deferred();
+                        var onFreshopLoaded = function (event) {
+                            freshop.ui.off('loaded', onFreshopLoaded);
+                            deferredFreshopLoad.resolve();
+                        };
+                        freshop.ui.on('loaded', onFreshopLoaded);
+                    }
+
+                    if(location.pathname == '/' && !($.urlParam('s') != null)) {
+                        promiseLoadPage = deferredPageLoad = fpClient.loadHomepage(storeId);
+
+                        if(window.freshop) {
+                            deferredPageLoad = $.Deferred();
+                            promiseLoadPage
+                                .always(function () {
+                                    freshop.ui.trigger('#content', 'moduleLoad', {
+                                        callback: deferredPageLoad.resolve
+                                    });
+                                });
+                        }
+                    }
+
+                    $.when(deferredPageLoad, deferredFreshopLoad)
+                        .always(function() {
+                            $(document).trigger('freshoppageready');
+                        });
+                }
+            }
+
+            if($.isFunction(wpConfig.storeChanged)) {
+                wpConfig.storeChanged(store);
+            }
+            if(wpConfig.hasSiteBanner && !(window.freshop && freshop.isBot)) {
+                fpClient.loadSiteBanner(storeId);
+            }
+            if(wpConfig.hasXhrSlider) fpClient.loadSlider(storeId);
+		}
+        ,setStoreLinks: function($links, url) {
+            $links.each(function() {
+                var $this = $(this)
+                    ,href = $this.data('origHref');
+
+                if(!href) {
+                    $this.data('origHref', $this.attr('href'));
+                }
+                if(url) {
+                    href = url;
+                }
+                if((href || '').indexOf('www') == 0) {
+                    href = 'http://' + href;
+                }
+
+                $this.attr('href', href);       
+            });
+        }
+        ,setMyStoreBox: function(store){
+            var $myStoreLink = $('#header').find('.link-my-store')
+                ,$myStoreBox = $('#header').find('.dropdown-selected-store')
+                ,$storeName = $myStoreBox.find('.store-name > span.name')
+                ,$storeAddress = $myStoreBox.find('.store-address')
+                ,$storeHours = $myStoreBox.find('.store-hours > span')
+                ,$storePhone = $myStoreBox.find('.store-phone > span')
+                ,$storeDirections = $myStoreBox.find('.store-directions')
+                ,address = '';
+
+            if(store){
+                $myStoreLink.attr('data-toggle', 'dropdown');
+                if(store.name) $storeName.html('<a href="' + store.url +'">'+ freshop.ui.encodeForHtml(store.name) +'</a>');
+                if(store.address_1 && store.state && store.postal_code) {
+                    address = freshop.ui.encodeForHtml(store.address_1);
+                    if(store.address_2) address += ',' + freshop.ui.encodeForHtml(store.address_2);
+                    address += '<br />' + freshop.ui.encodeForHtml(store.city) + ', ' + freshop.ui.encodeForHtml(store.state) + ' ' + freshop.ui.encodeForHtml(store.postal_code);
+                }
+                if(address) $storeAddress.html(address);
+                if(store.hours) $storeHours.html(freshop.ui.encodeForHtml(store.hours));
+                if(store.phone) $storePhone.html(freshop.ui.encodeForHtml(store.phone));
+                if(store.latitude && store.longitude) $storeDirections.html('<a href="https://www.google.com/maps/dir//' + encodeURIComponent(address.replace("<br />", ' ')) + '" target="_blank">Get Directions</a>');
+
+            }
+            else{
+                $myStoreLink.attr('data-toggle', '');
+            }
+        }
+        ,initMinilistIndicator : function() {
+            var mobileSelector = '';
+            if(window.isSmall) mobileSelector = '-mobile';
+            $('#mini-list' + mobileSelector + '-wrapper').append($('#mini-list-indicator'));
+        }
+        ,loadHomepage: function(storeId){
+            var $content = $('#content'),
+                loc = window.location,
+                search = loc.search ? '/' + loc.search : '',
+                promise;
+
+            if(storeId) {
+                promise = $.ajax({
+                        url: ajax_objectClient.rest_url + '/freshop/v1/content/homepage' + search,
+                        dataType: 'json',
+                        data: {
+                            store_id: storeId
+                        }
+                    })
+                    .then(function (resp) {
+                        if (resp.url) return $.get(resp.url + search);
+                        return '';
+                    });
+            }
+
+            return $.when(promise)
+                .done(function(resp) {
+                    if(resp) {
+                        //$content = $(resp).replaceAll($content);
+
+                        var node = document.createElement('html');
+                        node.innerHTML = resp;
+
+                        var $head = $('head'),
+                            $childCss = $head.find('#child-style-css'),
+                            $fragmentHead = $(node.getElementsByTagName('head')[0]),
+                            $fragmentBody = $(node.getElementsByTagName('body')[0]),
+                            $oldStyle,
+                            $newStyle;
+
+                        $content = $fragmentBody.find('#content').replaceAll($content);
+
+                        _.each(['#siteorigin-panels-layouts-head', '#siteorigin-panels-front-css'], function(value) {
+                            $oldStyle = $head.find(value);
+                            $newStyle = $fragmentHead.find(value);
+
+                            if($oldStyle.length) $oldStyle.replaceWith($newStyle);
+                            else $newStyle.insertBefore($childCss);
+                        });
+                    }
+                })
+                .always(function() {
+                    $content.removeClass('loading');
+
+                    var $slider;
+                    _.each(window.soliloquy_slider, function(value, key) {
+                        $slider = $('#soliloquy-container-' + key);
+                        if($slider.length && !$slider.height()) {
+                            value.redrawSlider();
+                        }
+                    });
+
+                    if($.isFunction(wpConfig.loadHomepageComplete)) {
+                        wpConfig.loadHomepageComplete();
+                    }
+                });
+        }
+        ,loadSiteBanner: function(storeId){
+            $.ajax({
+                   url: ajax_objectClient.rest_url + '/freshop/v1/content/site-banner',
+                   dataType: 'json',
+                   data: {
+                       store_id: storeId
+                   }
+               })
+               .done(function(resp) {
+                   var html = $.trim(_.isObject(resp) ? resp.html : ''),
+                       $siteBanner = $('#site-banner').css('display', ''),
+                       $body = $('body'),
+                       hadBanner = $body.hasClass('has-site-banner'),
+                       hasBanner = html.length > 0;
+                       
+                   $siteBanner.toggleClass('hidden', html.length == 0);
+                   $body.toggleClass('has-site-banner', hasBanner);
+
+                   if(!hadBanner && hasBanner) {
+                       $siteBanner.html(html);
+
+                       $siteBanner
+                           .css('display', 'none')
+                           .slideDown('fast');
+                   }
+                   else if(hadBanner && !hasBanner) {
+                       $siteBanner
+                           .css('display', 'block')
+                           .slideUp('fast', function() {
+                               $siteBanner.html(html);
+                           });
+                   } 
+               });
+       }
+       ,loadSlider: function(storeId){
+        var deferred
+            ,isHome = false
+            ,$slider = $('#homepage-slider').removeClass('hidden');
+
+        if($('body').hasClass('home')) isHome = true;
+
+        if(isHome) {
+            deferred = $.ajax({
+                url: ajax_objectClient.rest_url + '/freshop/v1/content/slider',
+                dataType: 'json',
+                data: {
+                    store_id: storeId,
+                    is_home: isHome,
+                    slider_slug: 'homepage-slider',
+                    webp: window.hasWebp
+                }/*,
+                beforeSend: function(request) {
+                    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+                }*/
+            });
+        }
+
+        return $.when(deferred)
+            .always(function(resp) {
+                var html = (resp && resp.html) || '';
+                $slider
+                    .removeClass('loading')
+                    .addClass('loaded')
+                    .toggleClass('hidden', $.trim(html).length == 0)
+                    .html(html);
+            });
+
+    }
+
+	};
+
+    $(document).on('freshopInitialized', fpClient.onFreshopInit);
+})(jQuery); 

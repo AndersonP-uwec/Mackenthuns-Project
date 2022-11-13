@@ -1,0 +1,632 @@
+(function() {
+    if (window.top !== window.self) throw new Error('Unauthorized iframe');
+    if (window.freshop) throw new Error('Freshop included in document more than once');
+
+    var isBot = (/bot|crawl|slurp|spider|seek|mediapartners-google|structured-data|index|wget|pinterest|facebook|chrome-lighthouse|speed|ptst/i).test(navigator.userAgent),
+        routeParams = searchParams(window.location.hash.split('?')[1]),
+        head = document.head,
+        scriptTag = document.currentScript || getFreshopScriptTag(head.getElementsByTagName('script')),
+        params = {},
+        allowBots;
+
+    if (!scriptTag && document.body) {
+        scriptTag = getFreshopScriptTag(document.body.getElementsByTagName('script'));
+    }
+    if (scriptTag) params = searchParams(trim(scriptTag.getAttribute('src')).split('?')[1]);
+
+    allowBots = routeParams.allow_bots == 'true' || params.allow_bots == 'true';
+    if (
+        routeParams.disable_freshop == 'true' ||
+        (isBot && !allowBots)
+    ) {
+        return;
+    }
+
+    /*!
+     * Bowser - a browser detector
+     * https://github.com/ded/bowser
+     * MIT License | (c) Dustin Diaz 2015
+     */
+    var oldBowser = window.bowser;
+    !function(e,t,n){typeof module!="undefined"&&module.exports?module.exports=n():typeof define=="function"&&define.amd?define(t,n):e[t]=n()}(this,"bowser",function(){function t(t){function n(e){var n=t.match(e);return n&&n.length>1&&n[1]||""}function r(e){var n=t.match(e);return n&&n.length>1&&n[2]||""}function N(e){switch(e){case"NT":return"NT";case"XP":return"XP";case"NT 5.0":return"2000";case"NT 5.1":return"XP";case"NT 5.2":return"2003";case"NT 6.0":return"Vista";case"NT 6.1":return"7";case"NT 6.2":return"8";case"NT 6.3":return"8.1";case"NT 10.0":return"10";default:return undefined}}var i=n(/(ipod|iphone|ipad)/i).toLowerCase(),s=/like android/i.test(t),o=!s&&/android/i.test(t),u=/nexus\s*[0-6]\s*/i.test(t),a=!u&&/nexus\s*[0-9]+/i.test(t),f=/CrOS/.test(t),l=/silk/i.test(t),c=/sailfish/i.test(t),h=/tizen/i.test(t),p=/(web|hpw)os/i.test(t),d=/windows phone/i.test(t),v=/SamsungBrowser/i.test(t),m=!d&&/windows/i.test(t),g=!i&&!l&&/macintosh/i.test(t),y=!o&&!c&&!h&&!p&&/linux/i.test(t),b=r(/edg([ea]|ios)\/(\d+(\.\d+)?)/i),w=n(/version\/(\d+(\.\d+)?)/i),E=/tablet/i.test(t)&&!/tablet pc/i.test(t),S=!E&&/[^-]mobi/i.test(t),x=/xbox/i.test(t),T;/opera/i.test(t)?T={name:"Opera",opera:e,version:w||n(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)}:/opr\/|opios/i.test(t)?T={name:"Opera",opera:e,version:n(/(?:opr|opios)[\s\/](\d+(\.\d+)?)/i)||w}:/SamsungBrowser/i.test(t)?T={name:"Samsung Internet for Android",samsungBrowser:e,version:w||n(/(?:SamsungBrowser)[\s\/](\d+(\.\d+)?)/i)}:/coast/i.test(t)?T={name:"Opera Coast",coast:e,version:w||n(/(?:coast)[\s\/](\d+(\.\d+)?)/i)}:/yabrowser/i.test(t)?T={name:"Yandex Browser",yandexbrowser:e,version:w||n(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)}:/ucbrowser/i.test(t)?T={name:"UC Browser",ucbrowser:e,version:n(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)}:/mxios/i.test(t)?T={name:"Maxthon",maxthon:e,version:n(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)}:/epiphany/i.test(t)?T={name:"Epiphany",epiphany:e,version:n(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)}:/puffin/i.test(t)?T={name:"Puffin",puffin:e,version:n(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)}:/sleipnir/i.test(t)?T={name:"Sleipnir",sleipnir:e,version:n(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)}:/k-meleon/i.test(t)?T={name:"K-Meleon",kMeleon:e,version:n(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)}:d?(T={name:"Windows Phone",osname:"Windows Phone",windowsphone:e},b?(T.msedge=e,T.version=b):(T.msie=e,T.version=n(/iemobile\/(\d+(\.\d+)?)/i))):/msie|trident/i.test(t)?T={name:"Internet Explorer",msie:e,version:n(/(?:msie |rv:)(\d+(\.\d+)?)/i)}:f?T={name:"Chrome",osname:"Chrome OS",chromeos:e,chromeBook:e,chrome:e,version:n(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)}:/edg([ea]|ios)/i.test(t)?T={name:"Microsoft Edge",msedge:e,version:b}:/vivaldi/i.test(t)?T={name:"Vivaldi",vivaldi:e,version:n(/vivaldi\/(\d+(\.\d+)?)/i)||w}:c?T={name:"Sailfish",osname:"Sailfish OS",sailfish:e,version:n(/sailfish\s?browser\/(\d+(\.\d+)?)/i)}:/seamonkey\//i.test(t)?T={name:"SeaMonkey",seamonkey:e,version:n(/seamonkey\/(\d+(\.\d+)?)/i)}:/firefox|iceweasel|fxios/i.test(t)?(T={name:"Firefox",firefox:e,version:n(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)},/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(t)&&(T.firefoxos=e,T.osname="Firefox OS")):l?T={name:"Amazon Silk",silk:e,version:n(/silk\/(\d+(\.\d+)?)/i)}:/phantom/i.test(t)?T={name:"PhantomJS",phantom:e,version:n(/phantomjs\/(\d+(\.\d+)?)/i)}:/slimerjs/i.test(t)?T={name:"SlimerJS",slimer:e,version:n(/slimerjs\/(\d+(\.\d+)?)/i)}:/blackberry|\bbb\d+/i.test(t)||/rim\stablet/i.test(t)?T={name:"BlackBerry",osname:"BlackBerry OS",blackberry:e,version:w||n(/blackberry[\d]+\/(\d+(\.\d+)?)/i)}:p?(T={name:"WebOS",osname:"WebOS",webos:e,version:w||n(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)},/touchpad\//i.test(t)&&(T.touchpad=e)):/bada/i.test(t)?T={name:"Bada",osname:"Bada",bada:e,version:n(/dolfin\/(\d+(\.\d+)?)/i)}:h?T={name:"Tizen",osname:"Tizen",tizen:e,version:n(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i)||w}:/qupzilla/i.test(t)?T={name:"QupZilla",qupzilla:e,version:n(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i)||w}:/chromium/i.test(t)?T={name:"Chromium",chromium:e,version:n(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i)||w}:/chrome|crios|crmo/i.test(t)?T={name:"Chrome",chrome:e,version:n(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)}:o?T={name:"Android",version:w}:/safari|applewebkit/i.test(t)?(T={name:"Safari",safari:e},w&&(T.version=w)):i?(T={name:i=="iphone"?"iPhone":i=="ipad"?"iPad":"iPod"},w&&(T.version=w)):/googlebot/i.test(t)?T={name:"Googlebot",googlebot:e,version:n(/googlebot\/(\d+(\.\d+))/i)||w}:T={name:n(/^(.*)\/(.*) /),version:r(/^(.*)\/(.*) /)},!T.msedge&&/(apple)?webkit/i.test(t)?(/(apple)?webkit\/537\.36/i.test(t)?(T.name=T.name||"Blink",T.blink=e):(T.name=T.name||"Webkit",T.webkit=e),!T.version&&w&&(T.version=w)):!T.opera&&/gecko\//i.test(t)&&(T.name=T.name||"Gecko",T.gecko=e,T.version=T.version||n(/gecko\/(\d+(\.\d+)?)/i)),!T.windowsphone&&(o||T.silk)?(T.android=e,T.osname="Android"):!T.windowsphone&&i?(T[i]=e,T.ios=e,T.osname="iOS"):g?(T.mac=e,T.osname="macOS"):x?(T.xbox=e,T.osname="Xbox"):m?(T.windows=e,T.osname="Windows"):y&&(T.linux=e,T.osname="Linux");var C="";T.windows?C=N(n(/Windows ((NT|XP)( \d\d?.\d)?)/i)):T.windowsphone?C=n(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i):T.mac?(C=n(/Mac OS X (\d+([_\.\s]\d+)*)/i),C=C.replace(/[_\s]/g,".")):i?(C=n(/os (\d+([_\s]\d+)*) like mac os x/i),C=C.replace(/[_\s]/g,".")):o?C=n(/android[ \/-](\d+(\.\d+)*)/i):T.webos?C=n(/(?:web|hpw)os\/(\d+(\.\d+)*)/i):T.blackberry?C=n(/rim\stablet\sos\s(\d+(\.\d+)*)/i):T.bada?C=n(/bada\/(\d+(\.\d+)*)/i):T.tizen&&(C=n(/tizen[\/\s](\d+(\.\d+)*)/i)),C&&(T.osversion=C);var k=!T.windows&&C.split(".")[0];if(E||a||i=="ipad"||o&&(k==3||k>=4&&!S)||T.silk)T.tablet=e;else if(S||i=="iphone"||i=="ipod"||o||u||T.blackberry||T.webos||T.bada)T.mobile=e;return T.msedge||T.msie&&T.version>=10||T.yandexbrowser&&T.version>=15||T.vivaldi&&T.version>=1||T.chrome&&T.version>=20||T.samsungBrowser&&T.version>=4||T.firefox&&T.version>=20||T.safari&&T.version>=6||T.opera&&T.version>=10||T.ios&&T.osversion&&T.osversion.split(".")[0]>=6||T.blackberry&&T.version>=10.1||T.chromium&&T.version>=20?T.a=e:T.msie&&T.version<10||T.chrome&&T.version<20||T.firefox&&T.version<20||T.safari&&T.version<6||T.opera&&T.version<10||T.ios&&T.osversion&&T.osversion.split(".")[0]<6||T.chromium&&T.version<20?T.c=e:T.x=e,T}function r(e){return e.split(".").length}function i(e,t){var n=[],r;if(Array.prototype.map)return Array.prototype.map.call(e,t);for(r=0;r<e.length;r++)n.push(t(e[r]));return n}function s(e){var t=Math.max(r(e[0]),r(e[1])),n=i(e,function(e){var n=t-r(e);return e+=(new Array(n+1)).join(".0"),i(e.split("."),function(e){return(new Array(20-e.length)).join("0")+e}).reverse()});while(--t>=0){if(n[0][t]>n[1][t])return 1;if(n[0][t]!==n[1][t])return-1;if(t===0)return 0}}function o(e,r,i){var o=n;typeof r=="string"&&(i=r,r=void 0),r===void 0&&(r=!1),i&&(o=t(i));var u=""+o.version;for(var a in e)if(e.hasOwnProperty(a)&&o[a]){if(typeof e[a]!="string")throw new Error("Browser version in the minVersion map should be a string: "+a+": "+String(e));return s([u,e[a]])<0}return r}function u(e,t,n){return!o(e,t,n)}var e=!0,n=t(typeof navigator!="undefined"?navigator.userAgent||"":"");return n.test=function(e){for(var t=0;t<e.length;++t){var r=e[t];if(typeof r=="string"&&r in n)return!0}return!1},n.isUnsupportedBrowser=o,n.compareVersions=s,n.check=u,n._detect=t,n.detect=t,n})
+    var bowser = window.bowser;
+    window.bowser = oldBowser;
+
+    if(!(isBot || bowser.osname)) throw new Error('Unknown OS');
+
+    var clientConfig = {
+            urls: {
+                home: '/',
+                shopping: '/shop',
+                notSupported: '/not-supported'
+            }
+        },
+        urls = clientConfig.urls,
+        validBrowser,
+        redirectTo;
+
+    validBrowser = invalidBrowserCheck();
+
+    if (!validBrowser) {
+        redirectTo = urls.notSupported || urls.home;
+        if (isCurrentPage(redirectTo)) throw new Error('User Agent not supported');
+    }
+    else if (isCurrentPage(urls.notSupported)) {
+        redirectTo = urls.shopping || urls.home;
+    }
+
+    if(redirectTo) {
+        window.location.href = redirectTo;
+        return;
+    }
+
+    var noop = function () {},
+        callbackTimeoutSeconds = 30, //amount of time to wait for callback method (30s)
+        fileGroupSuffix = '',
+        libraries = '-ui';
+
+    if (!window.console) {
+        window.console = {
+            log: noop
+        };
+    }
+    var consoleLog = Function.prototype.bind.call(console.log, console),
+        consoleWarn = Function.prototype.bind.call(console.warn || console.log, console);
+
+    console.group = console.group || consoleLog;
+    console.groupEnd = console.groupEnd || noop;
+
+    window.fp = {
+        appKey: 'mackenthuns',
+        assetAppKey: 'gold_standard',
+        configMode: undefined,
+        apiVersion: 1,
+        deployId: '05ecfb82f109748ef7ea088219719c7582c37e6d',
+        apiBaseUrl: params.api_url || 'https://api.freshop.com/',
+        apiBaseUrls: params.api_url ? null : ["https://api.freshop.com/"],
+        assetBaseUrl: 'https://asset.freshop.com/',
+        assetCdnBaseUrl: 'https://assetcdn.freshop.com/',
+        assetCdnUrl: 'https://assetcdn.freshop.com/1/web/05ecfb82f109748ef7ea088219719c7582c37e6d/cdn/',
+        assetCdnImageUrl: 'https://ipcdn.freshop.com/',
+        clientAssetBaseUrl: 'https://assetcdn.freshop.com/1/web/05ecfb82f109748ef7ea088219719c7582c37e6d/cdn/gold_standard/',
+        assetCdnPath: '/web/05ecfb82f109748ef7ea088219719c7582c37e6d/cdn/',
+        clientAssetPath: '/web/05ecfb82f109748ef7ea088219719c7582c37e6d/cdn/gold_standard/',
+        environment: 'prod',
+        bugsnagApiKey: '581570ae263d800727d752c8038a3be0',
+        isBot: isBot,
+        allowBots: allowBots,
+        session: {
+            preference: {}
+        },
+        store: {},
+        topStore: {},
+        user: {
+            preference: {}
+        },
+        clientCallback: null,
+        clientReady: false,
+        loadStartDate: new Date(),
+        notifier: {
+            notify: function (error, options) {
+                if(typeof(options) != 'object') options = {};
+                if(fp && fp.ui && fp.ui.applyErrorMeta) fp.ui.applyErrorMeta(options);
+                var metaData = typeof(options.metaData) == 'object' && options.metaData['meta data'];
+                metaData = typeof(metaData) == 'object' ? metaData : {};
+
+                fp.log('metaData:', metaData);
+
+                if(fp.isLocal() && !options.disableThrowError && error instanceof Error) {
+                    throw error;
+                }
+                else {
+                    fp.logError(error.message, metaData.Status, metaData['API Url']);
+                }
+            },
+            disabled: true,
+            user: {},
+            metaData: {}
+        },
+        data: {
+            events: {
+                handlers: {},
+                uiHandlers: {}
+            }
+        },
+        isLocal: function () {
+            return window.location.hostname == 'localhost';
+        },
+        isDev: function () {
+            if(this.__isDev == undefined) {
+                var prefCookie = (this.getPrefCookie && this.getPrefCookie()) || {},
+                    isDev;
+
+                if (routeParams.isPreProd == 'true' || routeParams.isProd == 'true' || prefCookie.isPreProd || prefCookie.isProd) {
+                    isDev = false;
+                }
+                else {
+                    isDev = this.environment == 'dev' || this.environment == 'stage' || window.location.hostname == 'localhost' || routeParams.isDev == 'true';
+                }
+                if (isDev && !window._fp) window._fp = this;
+
+                this.__isDev = isDev;
+            }
+            return this.__isDev;
+        },
+        isStage: function () {
+            return this.environment == 'staging';
+        },
+        isPreProd: function () {
+            if(this.__isPreProd == undefined) {
+                var prefCookie = (this.getPrefCookie && this.getPrefCookie()) || {},
+                    isPreProd;
+
+                if (routeParams.isDev == 'true' || routeParams.isProd == 'true' || prefCookie.isDev || prefCookie.isProd) {
+                    isPreProd = false;
+                }
+                else {
+                    isPreProd = this.environment == 'pre-prod' || routeParams.isPreProd == 'true' || prefCookie.isPreProd == 'true';
+                }
+                this.__isPreProd = isPreProd;
+            }
+            return this.__isPreProd;
+        },
+        isProd: function () {
+            if(this.__isProd == undefined) {
+                var prefCookie = (this.getPrefCookie && this.getPrefCookie()) || {},
+                    isProd;
+
+                if (routeParams.isDev == 'true' || routeParams.isPreProd == 'true' || prefCookie.isDev || prefCookie.isPreProd) {
+                    isProd = false;
+                }
+                else {
+                    isProd = this.environment == 'prod' || routeParams.isProd == 'true' || prefCookie.isProd == 'true';
+                }
+                this.__isProd = isProd;
+            }
+
+            return this.__isProd;
+        },
+        log: function () {
+            try {
+                var args = arguments,
+                    pref = this.getPrefCookie ? this.getPrefCookie() : {},
+                    options,
+                    first = arguments[0],
+                    logDebug = this.isDev() || pref.log_debug || pref.log_jsonp;
+
+                if (first && typeof(first) == 'object' && (first.logDebug || first.logStack || first.logError)) options = first;
+
+                if (options) {
+                    args = ['%cDetails: ', 'font-weight:bold;'];
+                    var value = options.msg;
+                    if (value) {
+                        if (typeof(value) == 'object') value = JSON.stringify(value);
+                        args.push(value);
+                    }
+                    for (var n = 1; n < arguments.length; n++) {
+                        value = arguments[n];
+                        if (value) {
+                            if (typeof(value) == 'object') value = JSON.stringify(value);
+                            args.push(value);
+                        }
+                    }
+                }
+                else options = {logDebug: logDebug, logStack: pref.log_stack};
+
+                options.logDebug = options.logError || options.logDebug || (fp.isProd() ? pref.log_stack : options.logStack);
+                if (!options.logDebug) return;
+
+                consoleLog.apply(console, args);
+
+                if (options.logError) {
+                    options.logStack = true;
+                    console.group('%cError', 'color:red;');
+                }
+
+                if (options.statusCode) consoleLog('%cStatus Code: ', 'font-weight:bold;', options.statusCode);
+                if (options.lineNumber) consoleLog('%cLine Number: ', 'font-weight:bold;', options.lineNumber);
+                if (options.charNumber) consoleLog('%cColumn Number: ', 'font-weight:bold;', options.charNumber);
+                if (options.url) consoleLog('%cUrl: ', 'font-weight:bold;', options.url);
+
+                if (options.logStack) {
+                    console.group('%cStack:', 'font-weight:bold;');
+
+                    if (/*!options.exc && */console.trace) console.trace();
+                    else {
+                        stack = getStacktrace(options.exc);
+                        consoleLog(stack);
+                    }
+
+                    console.groupEnd();
+                }
+
+                if (options.logError) console.groupEnd();
+            }
+            catch (exc) {
+                consoleLog(exc);
+            }
+        },
+        logError: function (msg, statusCode, url, lineNumber, charNumber, exc) {
+            if (!msg && exc) msg = exc.toString();
+            this.log({
+                logError: true,
+                msg: msg,
+                statusCode: statusCode,
+                url: url,
+                lineNumber: lineNumber,
+                charNumber: charNumber,
+                exc: exc
+            });
+        },
+        logStack: function () {
+            var args = [].slice.call(arguments);
+            args.unshift({logStack: true});
+            this.log.apply(this, args);
+        },
+        warn: function () {
+            consoleWarn.apply(console, arguments);
+        },
+        bowser: bowser,
+        msie: function () {
+            if (this.__msie != null) return this.__msie;
+            var ua = window.navigator.userAgent,
+                index = ua.indexOf('MSIE ');
+            this.__msie = index >= 0 ? parseInt(ua.substring(index + 5, ua.indexOf('.', index)), 10) : 0;
+            if (!this.__msie && 'ActiveXObject' in window) this.__msie = 11;
+
+            return this.__msie;
+        }
+    };
+
+    var fp = window.fp;
+
+    window.freshop = {
+        initialized: false,
+        loaded: false,
+        isBot: isBot,
+        on: function (event, callback) {
+            bindEvent(event, callback);
+            return this;
+        },
+        off: function (event, callback) {
+            unbindEvent(event, callback);
+            return this;
+        },
+        //remove this when Wordpress implements Mini List Indicator module / freshop.ui.trigger
+        trigger: noop
+    };
+
+    if (params.libraries == 'sdk') libraries = '';
+    else {
+        freshop.ui = {
+            on: function (event, selector, callback) {
+                bindEvent(event, selector, callback, fp.data.events.uiHandlers);
+                return this;
+            },
+            off: function (event, selector, callback) {
+                unbindEvent(event, selector, callback, fp.data.events.uiHandlers);
+                return this;
+            },
+            setConfig: function(config) {
+                if(typeof(config) == 'object') {
+                    for(var key in config) clientConfig[key] = config[key];
+                }
+            },
+            trigger: noop
+        };
+    }
+
+    fp.configMode = params.mode;
+    fp.clientCallback = (params.callback || '').toString();
+
+    //ensure client callback is triggered from a different thread by using setTimeout
+    setTimeout(waitClientCallback, 0);
+
+    var minify = !fp.isDev(),
+        debug = (params.debug || routeParams.debug) === 'true' ? '-debug' : '';
+    if (params.minify || routeParams.minify) {
+        minify = !(params.minify == 'false' || routeParams.minify == 'false');
+    }
+    if (minify) fileGroupSuffix += '.min';
+
+    if(routeParams.asset_cdn_base_url) {
+        fp.clientAssetBaseUrl = fp.clientAssetBaseUrl.replace(fp.assetCdnBaseUrl, routeParams.asset_cdn_base_url);
+        fp.assetCdnBaseUrl = routeParams.asset_cdn_base_url;
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.setAttribute('crossorigin', '');
+    s.setAttribute('data-group', 'freshop');
+    s.src = fp.assetCdnUrl + 'js/freshop' + libraries + debug + fileGroupSuffix + '.js';
+    s.onload = onAssetLoad;
+    head.appendChild(s);
+
+    var assetFileCount = 1,
+        assetLoadCount = 0;
+
+    if (params.libraries == 'sdk') fp.init(null, params.token);
+    else {
+        if(routeParams.enable_style_debug != 'true') debug = '';
+        
+        var cssFiles = [
+                'freshop' + debug + fileGroupSuffix + '.css'
+            ],
+            links = head.getElementsByTagName('link'),
+            firstChild = links.length ? links[0] : head.children[0],
+            link,
+            href;
+
+        assetFileCount += cssFiles.length;
+
+        for (var n = 0; n < cssFiles.length; n++) {
+            href = cssFiles[n];
+            if (href.indexOf('//') == -1) href = fp.clientAssetBaseUrl + 'css/' + href;
+            link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.media = 'none';
+            link.setAttribute('crossorigin', '');
+            link.setAttribute('data-group', 'freshop');
+            link.href = href;
+            link.onload = onAssetLoad;
+
+            if (firstChild) head.insertBefore(link, firstChild);
+            else head.appendChild(link);
+        }
+    }
+
+    //helper functions
+    function onAssetLoad() {
+        //setting media after load can trigger another load
+        this.onload = this.onreadystatechange = null;
+
+        if (this.tagName.toLowerCase() == 'link') {
+            this.media = 'all';
+        }
+
+        assetLoadCount++;
+        if (assetLoadCount < assetFileCount) return;
+
+
+        clientConfig.enableRouteDomain = params.enable_route_domain == 'true';
+        fp.init(clientConfig, params.token);
+    }
+
+    function bindEvent(event, selector, callback, handlers) {
+        if(!event || typeof(event) != 'string') return this;
+        if(typeof(selector) == 'function') {
+            callback = selector;
+            selector = undefined;
+        }
+        if(typeof(callback) != 'function') return this;
+
+        handlers = handlers || fp.data.events.handlers;
+
+        var handler = handlers[event];
+
+        if(!handler) handler = handlers[event] = [];
+        handler.push({event: event, selector: selector, callback: callback});
+
+        return this;
+    }
+
+    function unbindEvent(event, selector, callback, handlers) {
+        if(!event || typeof(event) != 'string') return this;
+        if(typeof(selector) == 'function') {
+            callback = selector;
+            selector = undefined;
+        }
+        if(typeof(callback) != 'function') return this;
+
+        handlers = handlers || fp.data.events.handlers;
+
+        var handler = handlers[event];
+
+        if(handler instanceof Array) {
+            var item;
+            for (var n = 0; n < handler.length; n++) {
+                item = handler[n];
+
+                if(
+                    item.event == event
+                    && item.handler == handler
+                    && (!(item.selector && selector) || (item.selector && item.selector == selector))
+                ) {
+
+                    handler.splice(n, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    function getFreshopScriptTag(scripts) {
+        var scriptTag,
+            src;
+
+        for(var n=0;n<scripts.length;n++) {
+            scriptTag = scripts[n];
+            src = scriptTag.getAttribute('src');
+
+            if(!src) continue;
+
+            src = src.toLowerCase();
+            if(src.indexOf('freshop.js') >= 0 && src.indexOf('app_key=') >= 0) return scriptTag;
+        }
+    }
+
+    var cancelTimestamp,
+        callback;
+
+    function waitClientCallback() {
+        if(!fp.clientCallback) {
+            clientCallbackReady();
+            return;
+        }
+
+        var parts = fp.clientCallback.split('.'),
+            item;
+
+        callback = window;
+        for(var n=0;n<parts.length;n++) {
+            item = parts[n];
+            if(item == 'window') {
+                n++;
+                item = parts[n];
+            }
+
+            callback = callback[item];
+            if(!callback) break;
+        }
+
+        if (typeof(callback) == 'function') {
+            var delay = 0;
+
+            if(routeParams.client_hang_for) {
+                delay = parseInt(routeParams.client_hang_for, 10);
+            }
+
+            if(delay) {
+                fp.warn('Delaying clientCallbackReady for ' + delay + 'ms');
+                setTimeout(clientCallbackReady, delay);
+                return;
+            }
+
+            clientCallbackReady();
+        }
+        else {
+            if(!cancelTimestamp) {
+                cancelTimestamp = new Date();
+                cancelTimestamp.setSeconds(cancelTimestamp.getSeconds() + callbackTimeoutSeconds);
+            }
+
+            if((new Date()) > cancelTimestamp) {
+                fp.log('Freshop initialization timed out waiting for "' + fp.clientCallback + '"');
+                clientCallbackReady();
+            }
+            else setTimeout(waitClientCallback, 100);
+        }
+    }
+
+    function clientCallbackReady() {
+        if(typeof(callback) == 'function') {
+            fp.clientCallback = callback;
+            fp.clientCallback();
+        }
+
+        fp.clientReady = true;
+        if(typeof(fp.clientCallbackReady) == 'function') fp.clientCallbackReady();
+    }
+
+    function searchParams(search) {
+        search = search != null ? search : window.location.search;
+        var params = {};
+        if(!search) return params;
+
+        var param,
+            value;
+        search = search.split('&');
+        for(var n=0;n<search.length;n++) {
+            param = search[n].split('=');
+            if(param.length == 2) {
+                value = trim(param[1]).replace(/\+/g, ' ');
+                try {
+                    value = decodeURIComponent(value);
+                }
+                catch(exc){}
+                params[trim(param[0])] = value;
+            }
+        }
+
+        return params;
+    }
+
+    function getStacktrace(exc) {
+        exc = exc || new Error;
+        return exc.stack || exc.backtrace || exc.stacktrace;
+    }
+
+    function trim(value) {
+        value = value || '';
+        if(value) value = value.replace(/^[ \s]+/gi, '').replace(/[ \s]+$/gi, '');
+        return value;
+    }
+
+    function trimRight(value, suffix){
+        value = value || '';
+        if(suffix) {
+            value = value.replace(new RegExp(suffix.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1') + '+$', 'gi'), '');
+        }
+        return value;
+    }
+
+    function startsWith(value, prefix, ignoreCase) {
+        value = value || '';
+        prefix = prefix || '';
+        if(ignoreCase) {
+            value = value.toLowerCase();
+            prefix = prefix.toLowerCase();
+        }
+        return value.indexOf(prefix) === 0;
+    }
+
+    function isCurrentPage(url) {
+        var loc = window.location,
+            host = loc.protocol + '//' + loc.host;
+
+        if(startsWith(url, '/')) url = host + url;
+
+        if(!startsWith(url, 'http', true)) return true;
+        if(!startsWith(url, host, true)) return false;
+
+        return trimRight(loc.href.substr(host.length).split('#')[0], '/') == trimRight(url.substr(host.length).split('#')[0], '/');
+    }
+
+    //https://github.com/Gavin-Paolucci-Kleinow/ie-truth
+    function IeVersion() {
+        var value = {
+            IsIE: false,
+            TrueVersion: 0,
+            ActingVersion: 0,
+            CompatibilityMode: false
+        };
+
+        var trident = navigator.userAgent.match(/Trident\/(\d+)/);
+        if (trident) {
+            value.IsIE = true;
+            value.TrueVersion = parseInt(trident[1], 10) + 4;
+        }
+
+        var msie = navigator.userAgent.match(/MSIE (\d+)/);
+        if (msie) {
+            value.IsIE = true;
+            value.ActingVersion = parseInt(msie[1]);
+        }
+        else value.ActingVersion = value.TrueVersion;
+
+        if (value.IsIE && value.TrueVersion > 0 && value.ActingVersion > 0) {
+            value.CompatibilityMode = value.TrueVersion != value.ActingVersion;
+        }
+        return value;
+    }
+
+    function invalidBrowserCheck(){
+        if(bowser.version <= 0) return true;
+        if(bowser.firefox && bowser.version < 10) return false;
+        if(bowser.msie) {
+            if(clientConfig.intent == 'admin') {
+                if(bowser.version < 10) {
+                    var ieVersion = IeVersion();
+                    if(ieVersion.IsIE && ieVersion.TrueVersion < 10) return false;
+                }
+            }
+            else return false;
+        }
+        if(bowser.safari && bowser.version < 7) return false;
+        if(bowser.opera && bowser.version < 12.1) return false;
+
+        return true;
+    }
+})();
