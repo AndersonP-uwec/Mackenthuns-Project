@@ -1,0 +1,49 @@
+
+.specialbody1{
+    text-align: center;
+    color: #203153;
+    font-size: 30px;
+    font-family: lato;
+}
+
+.specialbody2{
+    text-align: center;
+    color: #203153;
+    font-size: 20px;
+    font-family: lato;
+}
+
+.storeoptionsflexcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.darkbutton{ 
+    background-color: #406D2C; 
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 200px;
+    border-radius: 5px;
+    font-family: lato;
+} 
+
+.biggerdarkbutton{ 
+    background-color: #406D2C; 
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 450px;
+    border-radius: 5px;
+    font-family: lato;
+} 

@@ -10,9 +10,9 @@ h1, h2, p, body{
 }
 
 .header{
-    background-color: #203153;
+    background-color: #1A2352;
     width: 100vw;
-    height: 20vh;
+    height: 15vh;
     position:relative;
     display:flex;
     align-items:center;
@@ -50,15 +50,13 @@ h1, h2, p, body{
 
 .cart{
     width: 80px;
-    height: 80px;
+    height: 15vh;
     display: flex;
-    align-items: flex-end;
-    top: 10px;
-    background-color: #9FC9EB;
+    align-items: center;
+    background-color: #4A8235;
 }
 
 .cart:hover{
-    border: 3px solid black;
     background-color: #406D2C;
 }
 
@@ -101,6 +99,11 @@ h1, h2, p, body{
     padding: 20px;
 }
 
+.imgheader{
+    width:100%;
+
+}
+
 .imgd{
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -112,27 +115,23 @@ h1, h2, p, body{
 
 .depbody{
     padding: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
     text-align: left;
     color: #54595F;
     
 }
 
-.specialbody1{
-    padding: 20px;
-    text-align: center;
-    color: #203153;
-    font-size: "30px";
-}
-
-.specialbody2{
-    padding: 20px;
-    text-align: center;
-    color: #203153;
-    font-size: "20px";
+.deptopparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    line-height: 1.5;
 }
 
 .footer{
-    background-color: #203153;
+    background-color: #1A2352;
     color: white;
     width: 100vw;
     height: 15vh;
@@ -155,7 +154,7 @@ p{
 }
 
 button{ 
-    background-color: #4bc15d; 
+    background-color: #406D2C; 
     border: none;
     color: white;
     padding: 5px 10px;
