@@ -166,7 +166,7 @@ button{
     border-radius: 5px;
 } 
 
-.meat a:link, a:visited{
+.button a:link, a:visited{
     text-decoration: none;
     text-align: center;
     color: white;
