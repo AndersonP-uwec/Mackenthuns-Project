@@ -1,0 +1,30 @@
+Plan:
+
+1. Your site must use at least two different font faces. 
+Headings are often rendered in a sans-serif font, and body in a serif font.
+
+
+2. Your site must include at least four web pages implementing some sort of form 
+(or informal collection of input elements). 
+The form might submit data to a server using 
+POST requests and retrieve data using GET requests. 
+/// implements products thing with this 
+
+3. Your site must include links to external sites. 
+Clicking on external links must open a new tab or window rather than replace your page.
+// we can do this easily
+
+4. Your site must include at least one animation, powered either by CSS or JavaScript.
+// cart animation (simple, not too late)
+
+5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
+You could also use JSON format to implement this feature. 
+/// implement products thing w this 
+
+6. BONUS POINTS: If you implement different functionality based on login credentials 
+(such as administrators, users) you will be receiving 5 extra points. 
+(Total is 40 points)
+/// if we have time (we dont)
+
+7. You should address the comments and feedback from Project 1 in this Project 2.
+// products listings whatever
