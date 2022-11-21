@@ -8,4 +8,5 @@ global colors
     text grey: #54595F
     text light grey: #7A7A7A
 
-global font: 'lato'
+global serif font: 'lato'
+global sans-serf font: ''
