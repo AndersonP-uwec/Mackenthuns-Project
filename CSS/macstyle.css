@@ -25,7 +25,7 @@ h1, h2, p, body{
 .headerlogo{
     display: float;
     float: left;
-    height: 100px;
+    height: 80px;
 }
 
 #headerbutton{ 
@@ -122,17 +122,20 @@ h1, h2, p, body{
     
 }
 
+
+
 .footer{
     background-color: #1A2352;
     color: white;
     width: 100vw;
     height: 15vh;
     position:relative;
-    display:flex;
+    display: flex;
     align-items:center;
     float: left;
     padding: 20px 40px;
     bottom: 0;
+    justify-content: center;
 }
 
 .footerlogo{

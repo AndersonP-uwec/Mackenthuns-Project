@@ -14,7 +14,7 @@
 
 .deptopparagraph{
     color: #7A7A7A;
-    font-size: 20px;
+    font-size: 18px;
     font-family: lato;
     margin-top:25px;
     margin-right: 25px;
@@ -28,8 +28,12 @@
     justify-content: space-around;
 }
 
-.tbonesteakimg{
-    width: 45%;
+.meatnseafood{
+    width: 100%;
+}
+
+.verlasso{
+    width:35%;
     float: right;
 }
 
