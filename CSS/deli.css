@@ -13,6 +13,14 @@
     font-family: lato;
 }
 
+.deptopparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    line-height: 1.5;
+}
+
 .storeoptionsflexcontainer{
     display: flex;
     flex-direction: row;
