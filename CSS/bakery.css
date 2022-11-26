@@ -1,0 +1,67 @@
+.gradcake{
+    width: 35%;
+    float: left;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+}
+
+.depparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    margin-right: 25px;
+    line-height: 1.5;
+}
+
+.specialbody1{
+    text-align: center;
+    color: #203153;
+    font-size: 30px;
+    font-family: lato;
+}
+
+.specialbody2{
+    text-align: center;
+    color: #203153;
+    font-size: 20px;
+    font-family: lato;
+}
+
+.biggerdarkbutton{ 
+    background-color: #406D2C; 
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 450px;
+    border-radius: 5px;
+    font-family: lato;
+} 
+
+.cakeorder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.cakeoptions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5%;
+    
+}
+
+.cakeimg{
+    flex: 0 1 30%;
+    width: 25%;
+    border-radius: 10px;
+    margin-bottom: 2em;
+    align-items: center;
+}
