@@ -1,0 +1,22 @@
+.floral_logo{
+    width: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+
+}
+
+.depparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    margin-right: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 1.5;
+}
+
+.specialbody1{
+    text-align: center;
+}

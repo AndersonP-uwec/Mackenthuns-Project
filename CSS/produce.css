@@ -1,0 +1,28 @@
+.farmimg{
+    width: 40%;
+    float: left;
+    padding-bottom: 2%;
+    padding-right: 2%;
+}
+
+.depparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    margin-right: 25px;
+    line-height: 1.5;
+}
+
+
+.produce{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 7%;
+
+}
+
+.produceimg{
+    width: 30%;
+}
