@@ -23,6 +23,7 @@ Clicking on external links must open a new tab or window rather than replace you
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
 /// attempting forms via JSON
+//we need to figure out what we want to do for data retreival
 
 6. BONUS POINTS: If you implement different functionality based on login credentials 
 (such as administrators, users) you will be receiving 5 extra points. 
