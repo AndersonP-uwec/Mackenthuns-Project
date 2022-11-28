@@ -149,8 +149,10 @@
                 <div>
                     <b>Sign Up For Our Updates</b><br>
                     Find out about product, menu and location updates.<br>
-                    <input class = "signup" type = "text" placeholder = "Email Address" name = "signup">
-                    <button type = "submit"> Create </button>
+                    <form action = "insert_email.php" method = "post">
+                        <input class = "signup" type = "text" placeholder = "email" name = "email">
+                        <button type = "submit" name = "submit" value = "submit"> Create </button>
+                    </form>
                 </div>
             </div>
 
