@@ -1,5 +1,10 @@
+/* fonts for text */
 h1, h2, p, body{
     font-family: lato;
+}
+
+p{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container{
@@ -9,9 +14,10 @@ h1, h2, p, body{
      align-content: space-around;
 }
 
+/* header related items */
 .header{
     background-color: #1A2352;
-    width: 100vw;
+    width: 100%;
     height: 15vh;
     position:relative;
     display:flex;
@@ -22,7 +28,7 @@ h1, h2, p, body{
     
  }
 
-.headerlogo{
+.mainmackslogo{
     display: float;
     float: left;
     height: 80px;
@@ -42,18 +48,55 @@ h1, h2, p, body{
     width: 150px;
     text-decoration: none;
     text-align: center;
-    background-color: #1b263d;
     color: #4A8235;
-    border: 2px solid #4A8235;
     border-radius: 5px;
 }
 
-.cart{
-    width: 80px;
-    height: 15vh;
+/* style the search bar*/
+.search-bar input[type=text]{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    color: black;
+}
+
+.search-bar{
+    width: 100%;
+    height: 30%;
+    background: rgb(231, 231, 231);
     display: flex;
     align-items: center;
+    border-radius: 50px;
+    padding: 10px 10px;
+}
+
+.search-bar button img{
+    width: 25px;
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.searchbutton{
+    background-color: transparent; 
+}
+
+.cart{
+    width: 6%;
+    height: 11vh;
     background-color: #4A8235;
+}
+
+.cart img{
+    width: 100%;
 }
 
 .cart:hover{
@@ -65,8 +108,7 @@ h1, h2, p, body{
     background-color: #4A8235;
 }
 
-
-
+/* department cards */
 .card{ 
     flex: 0 1 32%;
     width: 25%;
@@ -124,32 +166,43 @@ h1, h2, p, body{
     
 }
 
-
-
+/* footer related items */
 .footer{
     background-color: #1A2352;
     color: white;
-    width: 100vw;
-    height: 15vh;
+    font-size: 15px;
+    width: 100%;
+    height: 22vh;
     position:relative;
     display: flex;
     align-items:center;
     float: left;
-    padding: 20px 40px;
     bottom: 0;
-    justify-content: center;
+    justify-content:space-around;
+    line-height: 20pt;
 }
 
-.footerlogo{
-    display: float;
-    float: left;
-    height: 100px;
+.socialmediaicons{
+    height: 20%;
 }
 
-p{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.appstoreicons{
+    height: 25%;
 }
 
+.signup input[type=text]{
+    font-size: 20px;
+    color: black;
+}
+
+.signup{
+    width: 50%;
+    height: 20%;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+/* misc */
 button{ 
     background-color: #406D2C; 
     border: none;

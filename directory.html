@@ -20,7 +20,7 @@
         <div class = "container">
             
             <div class = "header">
-                <img class = "headerlogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
 
                 <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
                     target = “_blank”>Weekly Ad</a>
@@ -29,9 +29,12 @@
                     target = “_blank”>My Account</a>
                 </button>
 
-                <form method="get" action="">
-                <input type="text" name="search" id="search" value=""> 
-                <input class="submit" type="submit" name="submit" value="Search"> 
+                <div>
+                    <form action = "#" class = "search-bar">
+                        <button class = "searchbutton" type = "submit"><img src = "Images/search.png"></button>
+                        <input class = "search" type = "text" placeholder = "Search products..." name = "search">
+                    </form>
+                </div>
             </form>
             
             <button class="cart"><img src="Images/cart.png"></button>
@@ -122,24 +125,32 @@
 
             <div class = "footer">
                 <div>
-                <img class = "footerlogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
                 </div>
                 
                 <div>
-                <p><b> Mackenthun's Waconia</b><br>
+                <b> Mackenthun's Waconia</b><br>
                     851 Marketplace Drive <br>
                     Waconia, MN 55387
-                </p>
                 </div>
 
                 <div>
-                    Connect With Us<br>
+                    <b>Connect With Us</b><br>
+                    <img class = "socialmediaicons" src = "Images/facebook-logo.png" alt = "facebook-logo">
+                    <img class = "socialmediaicons" src = "Images/instagram-logo.png" alt = "instagram-logo">
+                    <img class = "socialmediaicons" src = "Images/pinterest-logo.png" alt = "pinterest-logo">
+                    <img class = "socialmediaicons" src = "Images/youtube-logo.png" alt = "youtube-logo"><br>
 
-                    Download Our App
+                    <b>Download Our App</b><br>
+                    <img class = "appstoreicons" src = "Images/appstore.png" alt = "appstore">
+                    <img class = "appstoreicons" src = "Images/googleplay.png" alt = "googleplay"><br>
                 </div>
 
                 <div>
-                    Sign Up For Our Updates
+                    <b>Sign Up For Our Updates</b><br>
+                    Find out about product, menu and location updates.<br>
+                    <input class = "signup" type = "text" placeholder = "Email Address" name = "signup">
+                    <button type = "submit"> Create </button>
                 </div>
             </div>
 
