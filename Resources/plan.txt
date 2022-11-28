@@ -14,8 +14,8 @@ POST requests and retrieve data using GET requests.
 Clicking on external links must open a new tab or window rather than replace your page.
 // we can do this easily
 
-4. Your site must include at least one animation, powered either by CSS or JavaScript.
-// cart animation (simple, not too late)
+*4. Your site must include at least one animation, powered either by CSS or JavaScript.
+// cart animation (simple, not too late)* 
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
