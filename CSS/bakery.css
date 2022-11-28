@@ -29,7 +29,7 @@
     font-family: lato;
 }
 
-.biggerdarkbutton{ 
+.biggerdarkbutton a:link, a:visited{ 
     background-color: #406D2C; 
     border: none;
     color: white;

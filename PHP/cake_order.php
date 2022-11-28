@@ -16,8 +16,8 @@ $name = $_POST['name'];
 $flavor = $_POST['flavor'];
 $layers = $_POST['layers'];
 
-$sql = "INSERT INTO orders (order)
-VALUES ('$order', '$flavor', '$layers')";
+$sql = "INSERT INTO orders (name, flavor, layers)
+VALUES ('$name', '$flavor', '$layers')";
 
 @mysqli_query($dbc, $sql);
 

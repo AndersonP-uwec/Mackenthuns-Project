@@ -10,6 +10,88 @@
     <link rel = "stylesheet" href = "CSS/cakeorder.css" >
 </head>
 <body>
+    <div class = "container">
+
+        <div class = "header">
+            <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+
+            <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
+                target = “_blank”>Weekly Ad</a>
+            </button>
+            <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/my-account" 
+                target = “_blank”>My Account</a>
+            </button>
+
+            <div>
+                <form action = "#" class = "search-bar">
+                    <button class = "searchbutton" type = "submit"><img src = "Images/search.png"></button>
+                    <input class = "search" type = "text" placeholder = "Search products..." name = "search">
+                </form>
+            </div>
+        </form>
+        
+        <button class="cart"><img src="Images/cart.png"></button>
+        </div>
+
+        <div class = "depbody">
+
+            <h1> Cake Order Form </h1>
+
+            <form action="cake_order.php" method="post">
+                <h1><p align ='center'>ENTER DETAILS</p></h1><br><br>
+                <h2 align = 'center'>
+                <b>Enter your name: </b><input type="text" name="name" placeholder = "name"><br><br>
+                <b>Enter your desired flavor: </b><input type = "text" name="flavor" placeholder = "flavor"><br><br>
+                <b>Enter your desired number of layers: </b><input type = "text" name="layers" placeholder = "layers"><br><br>
+                <input type ="submit" name = "submit" value="submit">
+                </h2>
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class = "footer">
+            <div>
+            <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+            </div>
+            
+            <div>
+            <b> Mackenthun's Waconia</b><br>
+                851 Marketplace Drive <br>
+                Waconia, MN 55387
+            </div>
+
+            <div>
+                <b>Connect With Us</b><br>
+                <img class = "socialicons" src = "Images/facebook-logo.png" alt = "facebook-logo">
+                <img class = "socialicons" src = "Images/instagram-logo.png" alt = "instagram-logo">
+                <img class = "socialicons" src = "Images/pinterest-logo.png" alt = "pinterest-logo">
+                <img class = "socialicons" src = "Images/youtube-logo.png" alt = "youtube-logo"><br>
+
+                <b>Download Our App</b><br>
+                <img class = "appicons" src = "Images/appstore.png" alt = "appstore">
+                <img class = "appicons" src = "Images/googleplay.png" alt = "googleplay"><br>
+            </div>
+
+            <div>
+                <b>Sign Up For Our Updates</b><br>
+                Find out about product, menu and location updates.<br>
+                <input class = "signup" type = "text" placeholder = "Email Address" name = "signup">
+                <button type = "submit"> Create </button>
+            </div>
+        </div>  
+
+    </div>
+
     
 </body>
 </html>
