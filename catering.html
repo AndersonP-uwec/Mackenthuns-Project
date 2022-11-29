@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering</title>
+    <link rel = "icon" href = "Images/Favicon/favicon.ico">
+    <link rel = "stylesheet" href = "CSS/macstyle.css"> 
+    <link rel = "stylesheet" href = "CSS/catering.css">
+</head>
+<body>
+    <div class = "container">
+
+        <div class = "header">
+            <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+
+            <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
+                target = “_blank”>Weekly Ad</a>
+            </button>
+            <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/my-account" 
+                target = “_blank”>My Account</a>
+            </button>
+
+            <div>
+                <form action = "#" class = "search-bar">
+                    <button class = "searchbutton" type = "submit"><img src = "Images/search.png"></button>
+                    <input class = "search" type = "text" placeholder = "Search products..." name = "search">
+                </form>
+            </div>
+        </form>
+        
+        <button class="cart"><img src="Images/cart.png"></button>
+        </div>
+
+        <div class = "depbody">
+            <h1>Interested in Getting an Event Catered? Fill out this Form!</h1>
+            <div class="catering">
+            <form action = "catering_order.php">
+                <label for="odate">Today's Date: </label><br>
+                <input type="date" id="odate" name="odate"><br>
+                <label for="gdate">Order Due Date: </label><br>
+                <input type="date" id="gdate" name="gdate"><br>
+                <input type="radio" id="pickup" name="method" value="Pick up">
+                <label for="pickup">Pick up</label><br>
+                <input type="radio" id="delivery" name="method" value="Delivery">
+                <label for="delivery">Delivery</label><br>
+                <label for="location">Location of Event: </label><br>
+                <input type="text" id="location" name="location"><br>
+                <label for="name">Name: </label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="time">Time of Event: </label><br>
+                <input type="time" id="time" name="time"><br>
+                <label for="type">Type of Event: </label><br>
+                <input type="text" id="type" name="type"><br>
+                <label for="putime">Pick up Time: </label><br>
+                <input type="time" id="putime" name="putime"><br>
+                <label for="phone">Phone Number: </label><br>
+                <input type="tel" id="phone" name="phone"><br>
+                <label for="email">Email Address: </label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="num">Number of Guests: </label><br>
+                <input type="number" id="num" name="num"><br>
+                <h2>Place Your Order</h2>
+                <label for="meatball6">Meatball Sub 6" $5.50</label><br>
+                <input type="text" id="meatball6" name="meatball6"><br>
+                <label for="meatball12">Meatball Sub 12" $9.75</label><br>
+                <input type="text" id="meatball12" name="meatball12"><br>
+                <label for="club6">Club Sub 6" $5.50</label><br>
+                <input type="text" id="club6" name="club6"><br>
+                <label for="club12">Club Sub 12" $9.75</label><br>
+                <input type="text" id="club12" name="club12"><br>
+                <label for="turkey6">Turkey Sub 6" $5.50</label><br>
+                <input type="text" id="turkey6" name="turkey6"><br>
+                <label for="turkey12">Turkey Sub 12" $9.75</label><br>
+                <input type="text" id="turkey12" name="turkey12"><br>
+                <label for="blt6">BLT Sub 6" $5.50</label><br>
+                <input type="text" id="blt6" name="blt6"><br>
+                <label for="blt12">BLT Sub 12" $9.75</label><br>
+                <input type="text" id="blt12" name="blt12"><br>
+                <label for="box">10 Assorted Subs Box 12" $95.00</label><br>
+                <input type="text" id="box" name="box"><br>
+                <label for="diet">Any Dietary Restrictions?</label><br>
+                <input type="text" id="diet" name="diet"><br>
+                <input type="submit" value="Submit">
+
+            </form>
+            </div>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+.catering{
+    padding: 25px;
+    width: 100%;
+    margin: 15px; 
+}
+
+input[type=text], input[type=number], input[type=tel], input[type=email], input[type=date], input[type=time] {
+    width: 50%;
+    margin: 8px 0;
+    padding: 25px;
+}
+
+input[type=text]:focus {
+    border: 2px solid black;
+} 
+
+input[type=submit] {
+    background-color: #4A8235;
+    border: 1px solid #1A2352;
+    width: 30%;
+    height: 50px;
+}
