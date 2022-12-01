@@ -20,14 +20,19 @@
         <div class = "container">
             
             <div class = "header">
-                <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                <a href="directory.html">
+                    <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                </a>
 
-                <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
-                    target = “_blank”>Weekly Ad</a>
-                </button>
-                <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/my-account" 
-                    target = “_blank”>My Account</a>
-                </button>
+                <div>
+                    <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
+                        target = “_blank”><b>Weekly Ad</b></a>
+                    </button>
+
+                    <button class = "button" id = "headerbutton"><a href = "account.html" 
+                        target = “_blank”><b>My Account</b></a>
+                    </button>
+                </div>
 
                 <div>
                     <form action = "#" class = "search-bar">
@@ -40,12 +45,7 @@
             <button class="cart"><img src="Images/cart.png"></button>
             </div>
 
-            <!-- <div class = "title">
-                <h1>Mackenthun's Department Directory</h1>
-
-            </div> 
-            try to implement this???
-             -->
+            <div class = "title"> Departments </div> 
 
             <div class = "cards">
                 
@@ -105,6 +105,7 @@
                     </div>
                 </div>
 
+                <!--
                 <div class = "card">
                     <img class = "imgd" src = "Images/organics-department.png" alt = "organics">
                     <div class = "cardbox">
@@ -112,6 +113,7 @@
                         <button class = "button"><a href = "organics.html">Learn More</a></button>
                     </div>
                 </div>
+                -->
 
                 <div class = "card">
                     <img class = "imgd" src = "Images/produce-department.png" alt = "produce">
@@ -148,7 +150,7 @@
 
                 <div>
                     <b>Sign Up For Our Updates</b><br>
-                    Find out about product, menu and location updates.<br>
+                    Be the first to know about product, menu and location updates.<br>
                     <form action = "insert_email.php" method = "post">
                         <input class = "signup" type = "text" placeholder = "Email Address" name = "email">
                         <button type = "submit" name = "submit" value = "submit"> Create </button>

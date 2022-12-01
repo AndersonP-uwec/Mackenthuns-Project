@@ -9,4 +9,4 @@ global colors
     text light grey: #7A7A7A
 
 global serif font: 'lato'
-global sans-serf font: ''
+global sans-serf font: 'Lobster-Regular'
