@@ -9,7 +9,7 @@ Headings are often rendered in a sans-serif font, and body in a serif font.
 (or informal collection of input elements). 
 The form might submit data to a server using 
 POST requests and retrieve data using GET requests. 
-// 1. email listing submission
+1. email listing submission
 2. catering form
 3. cake order form
 4. user login
