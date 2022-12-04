@@ -1,0 +1,47 @@
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.left-box{
+    flex: 0 1 24%;
+    width: 50%;
+    background-color: rgb(237, 237, 237);
+    margin-bottom: 2em;
+    color: #54595F;
+    font-family: lato;
+    align-items: left;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+}
+
+.right-box{
+    flex: 0 1 30%;
+    width: 25%;
+    margin-bottom: 2em;
+    font-family: lato;
+    align-items: left;
+    margin: 4%;
+}
+
+.signintitle{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
+    padding-top: 2%;
+}
+
+.logininfo{
+    padding-left: 10%;
+}
+
+.text input[type=text]{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    color: black;
+}

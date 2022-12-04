@@ -8,7 +8,7 @@ h3{
 }
 
 p{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: lato;
 }
 
 .container{
@@ -35,7 +35,7 @@ p{
 .mainmackslogo{
     display: float;
     float: left;
-    height: 80px;
+    height: 70%;
 }
 
 #headerbutton{ 
@@ -69,7 +69,7 @@ p{
 
 .search-bar{
     width: 100%;
-    height: 30%;
+    height: 20%;
     background: rgb(231, 231, 231);
     display: flex;
     align-items: center;
@@ -123,6 +123,15 @@ p{
 @font-face {
     font-family: Lobster-Regular;
     src: url(/CSS/Lobster-Regular.ttf);
+}
+
+.directory-title{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
+    padding-top: 2%;
+    padding-left: 5%;
+    margin-bottom: -2%;
 }
 
 .title{
@@ -197,12 +206,12 @@ p{
     color: white;
     font-size: 15px;
     width: 100%;
-    height: 22vh;
+    height: 20vh;
     position:relative;
     display: flex;
     align-items:center;
     float: left;
-    bottom: 0;
+    bottom: 0em;
     justify-content:space-around;
     line-height: 20pt;
 }
@@ -228,23 +237,28 @@ p{
 }
 
 /* misc */
-button{ 
-    background-color: #4A8235; 
-    border: none;
-    color: white;
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    width: 100px;
-    border-radius: 3px;
-} 
 
 .button a:link, a:visited{
     text-decoration: none;
     text-align: center;
     color: white;
+}
+
+button{
+    width: 30%;
+    height: 100%;
+    border: none;
+    background-color: #4A8235;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 0 #75B75C;
+    transition: ease-out 0.3s;
+    font-size: 15px;
+    outline: none;
+
+}
+
+.hoveranimation:hover {
+    box-shadow: inset 30% 0 0 0 #75B75C;
 }
 
 @media screen and (max-width: 600px) {

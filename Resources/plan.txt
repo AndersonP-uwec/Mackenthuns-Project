@@ -2,6 +2,7 @@ Plan:
 
 1. Your site must use at least two different font faces. 
 Headings are often rendered in a sans-serif font, and body in a serif font.
+// Lato and Lobster
 
 
 2. Your site must include at least four web pages implementing some sort of form 
@@ -11,14 +12,14 @@ POST requests and retrieve data using GET requests.
 // 1. email listing submission
 2. catering form
 3. cake order form
-4. user login???
+4. user login
 
 3. Your site must include links to external sites. 
 Clicking on external links must open a new tab or window rather than replace your page.
 // DONE
 
 *4. Your site must include at least one animation, powered either by CSS or JavaScript.
-// cart animation ????? 
+// hover animation for directory
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
