@@ -14,8 +14,7 @@ echo "Connection Successful";
 $emailaddress = $_POST['emailaddress'];
 $password = $_POST['password'];
 
-$sql = "INSERT INTO signin (emailaddress, password)
-VALUES ('$emailaddress', '$password')";
+$sql = "INSERT INTO signin (emailaddress, password) VALUES ('$emailaddress', '$password')";
 
 @mysqli_query($dbc, $sql);
 
