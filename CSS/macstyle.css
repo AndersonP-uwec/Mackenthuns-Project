@@ -237,6 +237,18 @@ p{
 }
 
 /* misc */
+button{ 
+    background-color: #4A8235; 
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    width: 100px;
+    border-radius: 3px;
+} 
 
 .button a:link, a:visited{
     text-decoration: none;
@@ -244,22 +256,6 @@ p{
     color: white;
 }
 
-button{
-    width: 30%;
-    height: 100%;
-    border: none;
-    background-color: #4A8235;
-    border-radius: 3px;
-    box-shadow: inset 0 0 0 0 #75B75C;
-    transition: ease-out 0.3s;
-    font-size: 15px;
-    outline: none;
-
-}
-
-.hoveranimation:hover {
-    box-shadow: inset 30% 0 0 0 #75B75C;
-}
 
 @media screen and (max-width: 600px) {
     .card {
