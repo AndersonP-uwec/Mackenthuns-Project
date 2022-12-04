@@ -9,5 +9,5 @@ global colors
     text grey: #54595F
     text light grey: #7A7A7A
 
-global serif font: 'lato'
+global serif font: 'Lato'
 global sans-serf font: 'Lobster-Regular'

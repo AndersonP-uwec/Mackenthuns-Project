@@ -1,3 +1,7 @@
+.socialmediaicons{
+    height: 2vh;
+}
+
 .boxes{
     display: flex;
     flex-wrap: wrap;
@@ -30,7 +34,6 @@
     font-family: Lobster-Regular;
     font-size: 35px;
     color: #203153;
-    padding-top: 2%;
 }
 
 .logininfo{
@@ -44,4 +47,33 @@
     outline: none;
     font-size: 20px;
     color: black;
+}
+
+.signinbutton{
+    background-color: #203153; 
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    width: 100px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+    .left-box {
+        flex: 0 1 70%;
+        justify-content: center;
+    }
+
+    .right-box {
+        flex: 0 1 100%;
+        justify-content: space-evenly;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+
 }
