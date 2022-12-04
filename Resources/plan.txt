@@ -18,8 +18,8 @@ POST requests and retrieve data using GET requests.
 Clicking on external links must open a new tab or window rather than replace your page.
 // DONE
 
-*4. Your site must include at least one animation, powered either by CSS or JavaScript.
-// hover animation for directory
+4. Your site must include at least one animation, powered either by CSS or JavaScript.
+// hover animation for directory (DONE)
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
