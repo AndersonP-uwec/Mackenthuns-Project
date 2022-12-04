@@ -65,3 +65,9 @@
     margin-bottom: 2em;
     align-items: center;
 }
+
+#title{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
+}

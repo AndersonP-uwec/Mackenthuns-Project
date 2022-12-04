@@ -29,3 +29,9 @@
 .appicons{
     height: 5vh;
 }
+
+#title{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
+}

@@ -134,12 +134,20 @@ p{
     margin-bottom: -2%;
 }
 
+/* When padding is needed */
 .title{
     font-family: Lobster-Regular;
     font-size: 35px;
     color: #203153;
     padding-top: 2%;
     padding-left: 5%;
+}
+
+/* When padding is included */ 
+#title{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
 }
 
 /* department cards */
