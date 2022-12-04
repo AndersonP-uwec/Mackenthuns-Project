@@ -14,9 +14,9 @@ mysqli_connect_error());
 echo "Connection Successful";
 
 $email = $_POST['email'];
+echo $email;
 
-$sql = "INSERT INTO emails (email)
-VALUES ('$email')";
+$sql = "INSERT INTO emails (email) VALUES ('$email')";
 
 @mysqli_query($dbc, $sql);
 
