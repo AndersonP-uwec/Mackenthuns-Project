@@ -2,14 +2,22 @@
     height: 5vh;
 }
 
-.deliheadermacks{
+.header{
     height: 70%;
 }
 
-.delifootermacks{
+.dairyfootermacks{
     height: 6em;
 }
 
 .appicons{
     height: 5vh;
+}
+
+.deptopparagraph{
+    color: #7A7A7A;
+    font-size: 20px;
+    font-family: lato;
+    margin-top:25px;
+    line-height: 1.5;
 }
