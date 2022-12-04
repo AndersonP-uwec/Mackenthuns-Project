@@ -14,7 +14,7 @@ echo "Connection Successful";
 
 $odate = $_POST['odate'];
 $gdate = $_POST['gdate'];
-$obtain = $_POST['obtain'];
+$method = $_POST['method'];
 $location = $_POST['location'];
 $name = $_POST['name'];
 $time = $_POST['time'];
@@ -34,7 +34,7 @@ $blt12 = $_POST['blt12'];
 $box = $_POST['box'];
 $diet = $_POST['diet'];
 
-$sql = "INSERT INTO cater (odate, gdate, obtain, location, name, time, type, putime, phone, email, num, meatball6, meatball12, club6, club12, turkey6, turkey12, blt6, blt12, box, diet) VALUES ('$odate', '$gdate', '$obtain', '$location', '$name', '$time', '$type', '$putime', '$phone', '$email', '$num', '$meatball6', '$meatball12', '$club6', '$club12', '$turkey6', '$turkey12', '$blt6', '$blt12', '$box', '$diet')";
+$sql = "INSERT INTO cater (odate, gdate, method, location, name, time, type, putime, phone, email, num, meatball6, meatball12, club6, club12, turkey6, turkey12, blt6, blt12, box, diet) VALUES ('$odate', '$gdate', '$method', '$location', '$name', '$time', '$type', '$putime', '$phone', '$email', '$num', '$meatball6', '$meatball12', '$club6', '$club12', '$turkey6', '$turkey12', '$blt6', '$blt12', '$box', '$diet')";
 
 @mysqli_query($dbc, $sql);
 

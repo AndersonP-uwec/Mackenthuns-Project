@@ -37,26 +37,27 @@
         </div>
 
         <div class = "depbody">
-            <!--INsert catering menu via JSON table here-->
             <h1>Interested in Getting an Event Catered? Fill out this Form!</h1>
             <div class="catering">
             <form action = "PHP/catering_order.php">
                 <label for="odate">Today's Date: </label><br>
-                <input type="text" id="odate" name="odate"><br>
+                <input type="date" id="odate" name="odate"><br>
                 <label for="gdate">Order Due Date: </label><br>
-                <input type="text" id="gdate" name="gdate"><br>
-                <label for="obtain">Method of Pick up: </label><br>
-                <input type="text" id="obtain" name="obtain"><br>
+                <input type="date" id="gdate" name="gdate"><br>
+                <input type="radio" id="pickup" name="method" value="Pick up">
+                <label for="pickup">Pick up</label><br>
+                <input type="radio" id="delivery" name="method" value="Delivery">
+                <label for="delivery">Delivery</label><br>
                 <label for="location">Location of Event: </label><br>
                 <input type="text" id="location" name="location"><br>
                 <label for="name">Name: </label><br>
                 <input type="text" id="name" name="name"><br>
                 <label for="time">Time of Event: </label><br>
-                <input type="text" id="time" name="time"><br>
+                <input type="time" id="time" name="time"><br>
                 <label for="type">Type of Event: </label><br>
                 <input type="text" id="type" name="type"><br>
                 <label for="putime">Pick up Time: </label><br>
-                <input type="text" id="putime" name="putime"><br>
+                <input type="time" id="putime" name="putime"><br>
                 <label for="phone">Phone Number: </label><br>
                 <input type="tel" id="phone" name="phone"><br>
                 <label for="email">Email Address: </label><br>

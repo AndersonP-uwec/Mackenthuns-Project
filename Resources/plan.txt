@@ -2,36 +2,51 @@ Plan:
 
 1. Your site must use at least two different font faces. 
 Headings are often rendered in a sans-serif font, and body in a serif font.
-// Lato and Lobster (DONE)
+// Lato and Lobster
 
 
 2. Your site must include at least four web pages implementing some sort of form 
 (or informal collection of input elements). 
 The form might submit data to a server using 
 POST requests and retrieve data using GET requests. 
-1. email listing submission (DONE)
-2. catering form 
-3. cake order form (DONE)
-4. user login (DONE)
+1. email listing submission
+2. catering form
+3. cake order form
+4. user login
 
 3. Your site must include links to external sites. 
 Clicking on external links must open a new tab or window rather than replace your page.
-// (DONE)
+// DONE
 
 4. Your site must include at least one animation, powered either by CSS or JavaScript.
 // hover animation for directory (DONE)
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
-// attempting forms via SQL PHP (DONE)
-// we need to figure out what we want to do for data retreival
-// ^^ catering menu via json table
+/// attempting forms via JSON
+//we need to figure out what we want to do for data retreival
 
 6. BONUS POINTS: If you implement different functionality based on login credentials 
 (such as administrators, users) you will be receiving 5 extra points. 
 (Total is 40 points)
-//(NO)
+/// if we have time, 4th form??
 
 7. You should address the comments and feedback from Project 1 in this Project 2.
-// We listed products in floral and gifts, + catering order form. 
-// (DONE)
+// products listings whatever
+
+
+
+GOMES REPLY
+
+There is one PHP post example in the files I provided you. 
+You can use that as a template. 
+Here is an example https://www.youtube.com/watch?v=oZ9MApzOoKQ&ab_channel=Reevusk. 
+I skimmed through it to get a sense of what’s going on. 
+The code may be a bit different based on what I shared with you so use this as a template.
+ 
+My recommendation is to try and understand the example I showed in class 
+where I used Get request to read from the database. 
+If you can get that to work, using post request for insert and delete shouldn’t be an issue. 
+Also, while you are trying these things, use the console to see what error messages pop-up.
+ 
+Rahul
