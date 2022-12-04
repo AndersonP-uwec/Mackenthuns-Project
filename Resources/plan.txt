@@ -10,7 +10,7 @@ Headings are often rendered in a sans-serif font, and body in a serif font.
 The form might submit data to a server using 
 POST requests and retrieve data using GET requests. 
 1. email listing submission (DONE)
-2. catering form
+2. catering form 
 3. cake order form (DONE)
 4. user login (DONE)
 
@@ -23,13 +23,14 @@ Clicking on external links must open a new tab or window rather than replace you
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
-/// attempting forms via JSON
+// attempting forms via SQL PHP (DONE)
 // we need to figure out what we want to do for data retreival
+// ^^ catering menu via json table
 
 6. BONUS POINTS: If you implement different functionality based on login credentials 
 (such as administrators, users) you will be receiving 5 extra points. 
 (Total is 40 points)
-/// if we have time, 4th form (DONE)
+//(NO)
 
 7. You should address the comments and feedback from Project 1 in this Project 2.
 // We listed products in floral and gifts, + catering order form. 
