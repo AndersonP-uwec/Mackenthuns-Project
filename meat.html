@@ -14,21 +14,28 @@
         <div class = "container">
 
             <div class = "header">
-                <img class = "headerlogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
-
-                <button class = "button" id = "headerbutton"><a href = "directory.html">Directory</a>
-                </button>
-
-                <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
-                    target = “_blank”>Weekly Ad</a>
-                </button>
-                <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/my-account" 
-                    target = “_blank”>My Account</a>
-                </button>
-
-                <form method="get" action="">
-                <input type="text" name="search" id="search" value=""> 
-                <input class="submit" type="submit" name="submit" value="Search"> 
+                
+                <img class = "signinheadermacks" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                
+                <div class = "headerbuttons">
+                    <button class = "button" id = "headerbutton"><a href = "directory.html"><b>Directory</b></a>
+                    </button>
+                    
+                    <button class = "button" id = "headerbutton"><a href = "https://www.mackenthuns.com/weekly-ad/" 
+                        target = “_blank”><b>Weekly Ad</b></a>
+                    </button>
+    
+                    <button class = "button" id = "headerbutton"><a href = "signin.html" 
+                        target = “_blank”><b>My Account</b></a>
+                    </button>
+                </div>
+    
+                <div>
+                    <form action = "#" class = "search-bar">
+                        <button class = "searchbutton" type = "submit"><img src = "Images/search.png"></button>
+                        <input class = "search" type = "text" placeholder = "Search products..." name = "search">
+                    </form>
+                </div>
             </form>
             
             <button class="cart"><img src="Images/cart.png"></button>
@@ -63,7 +70,7 @@
 
             <div class = "footer">
                 <div>
-                <img class = "mainmackslogo" src = "Images/macks_name_white.png" alt = "maclogowhite">
+                <img class = "signinfootermacks" src = "Images/macks_name_white.png" alt = "maclogowhite">
                 </div>
                 
                 <div>
@@ -71,30 +78,30 @@
                     851 Marketplace Drive <br>
                     Waconia, MN 55387
                 </div>
-
+        
                 <div>
                     <b>Connect With Us</b><br>
                     <a href = "https://www.facebook.com/Mackenthuns" target="_blank">
-                        <img class = "socialmediaicons" src = "Images/facebook-logo.png" alt = "facebook-logo">
+                        <img class = "socialicons" src = "Images/facebook-logo.png" alt = "facebook-logo">
                     </a>
                     <a href = "https://www.instagram.com/mackenthunswaconia/" target="_blank">
-                        <img class = "socialmediaicons" src = "Images/instagram-logo.png" alt = "instagram-logo">
+                        <img class = "socialicons" src = "Images/instagram-logo.png" alt = "instagram-logo">
                     </a>
                     <a href = "https://www.pinterest.com/mackenthun/" target="_blank">
-                        <img class = "socialmediaicons" src = "Images/pinterest-logo.png" alt = "pinterest-logo">
+                        <img class = "socialicons" src = "Images/pinterest-logo.png" alt = "pinterest-logo">
                     </a>
                     <a href = "https://www.youtube.com/@mackenthunsfinefoods9775" target="_blank">
-                        <img class = "socialmediaicons" src = "Images/youtube-logo.png" alt = "youtube-logo"><br>
+                        <img class = "socialicons" src = "Images/youtube-logo.png" alt = "youtube-logo"><br>
                     </a>
                     <b>Download Our App</b><br>
-                    <img class = "appstoreicons" src = "Images/appstore.png" alt = "appstore">
-                    <img class = "appstoreicons" src = "Images/googleplay.png" alt = "googleplay"><br>
+                    <img class = "appicons" src = "Images/appstore.png" alt = "appstore">
+                    <img class = "appicons" src = "Images/googleplay.png" alt = "googleplay"><br>
                 </div>
-
+        
                 <div>
                     <b>Sign Up For Our Updates</b><br>
                     Be the first to know about product, menu and location updates.<br>
-                    <form action = "insert_email.php" method = "post">
+                    <form action = "PHP/insert_email.php" method = "post">
                         <input class = "signup" type = "text" placeholder = "Email Address" name = "email">
                         <button type = "submit" name = "submit" value = "submit"> Create </button>
                     </form>

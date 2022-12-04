@@ -28,10 +28,18 @@
 }
 
 
-.socialicons{
-    height: 5vh;
+.signinheadermacks{
+    height: 70%;
+}
+
+.signinfootermacks{
+    height: 6em;
 }
 
 .appicons{
+    height: 5vh;
+}
+
+.socialicons{
     height: 5vh;
 }
