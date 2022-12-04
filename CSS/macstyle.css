@@ -99,7 +99,6 @@ p{
 }
 
 .cart{
-    animation: wiggle 2s linear infinite;
     width: 6%;
     height: 11vh;
     background-color: #4A8235;
@@ -116,6 +115,7 @@ p{
 
 .cart:hover{
     background-color: #406D2C;
+    animation: wiggle 2s linear infinite;
 }
 
 .submit:hover{
