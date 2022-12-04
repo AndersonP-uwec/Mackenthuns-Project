@@ -31,11 +31,11 @@ p{
     transition: 0.3s;
  }
 
-/* .mainmackslogo{
+.mainmackslogo{
     display: float;
     float: left;
     height: 70%;
-} */
+} 
 
 .headerbuttons{
     flex-wrap: nowrap;
