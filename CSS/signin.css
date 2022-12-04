@@ -62,6 +62,22 @@
     border-radius: 3px;
 }
 
+.signinheadermacks{
+    height: 70%;
+}
+
+.signinfootermacks{
+    height: 6em;
+}
+
+.appicons{
+    height: 5vh;
+}
+
+.socialicons{
+    height: 5vh;
+}
+
 @media screen and (max-width: 600px) {
     .left-box {
         flex: 0 1 70%;
@@ -73,7 +89,3 @@
         justify-content: space-evenly;
     }
   }
-
-@media screen and (max-width: 400px) {
-
-}
