@@ -55,3 +55,9 @@
     border-radius: 5px;
     font-family: lato;
 } 
+
+#title{
+    font-family: Lobster-Regular;
+    font-size: 35px;
+    color: #203153;
+}
