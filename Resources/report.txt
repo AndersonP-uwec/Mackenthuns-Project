@@ -37,6 +37,10 @@ You could also use JSON format to implement this feature.
 
 
 Critique:
+Members of the class suggested we list items that Mackenthun's sells. To incorperate this, we provided
+names of the manufacturer's / brands of products we sell on some of our department pages such as
+Floral and Gifts, Grocery, and Meat and Seafood. We also provide a listing of the deli catering options
+on our catering order page.
 
 Forms:
     Our footer has a form to sign up for email updates.
@@ -46,7 +50,9 @@ Forms:
 
 Contributions:
     We worked together on the Directory page, Header, and Meat & Seafood.
-    Sage...
-    Parker...
-    McKenzie created the footer, the following pages, Deli, Grocery, and Sign In, as well as the CSS pages 
+    * Sage created the department cards in the directory, linked our php files to enable SQL database data retrieval,
+    and created the following pages: Bakery, Cake Order, Floral and Gifts, and Produce as well as the CSS files
+    associated with these pages
+    * Parker...
+    * McKenzie created the footer, the following pages, Deli, Grocery, and Sign In, as well as the CSS pages 
     associate with those files. I also created signin.php. 
