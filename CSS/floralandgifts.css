@@ -36,12 +36,12 @@
     line-height: 20pt;
 }
 
-.socialmediaicons{
-    height: 5%;
+.socialicons{
+    height: 5vh;
 }
 
-.appstoreicons{
-    height: 5%;
+.appicons{
+    height: 5vh;
 }
 
 #title{
@@ -50,6 +50,6 @@
     color: #203153;
 }
 
-.mainmackslogo{
-    height: 70%;
+.mainmacklogo{
+    height: 15vh;
 }
