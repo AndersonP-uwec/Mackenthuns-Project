@@ -33,6 +33,20 @@ You could also use JSON format to implement this feature.
 /// sort of login (DONE)
 
 7. You should address the comments and feedback from Project 1 in this Project 2.
-// we have json catering table and ordering (producs listings) and products listings in floral and gifts.
+// we have json catering table and ordering (products listings) and products listings in floral and gifts.
 
 
+Critique:
+
+Forms:
+    Our footer has a form to sign up for email updates.
+    deli.html has a form for catering.
+    bakery.html has a cake order form.
+    signin.html 
+
+Contributions:
+    We worked together on the Directory page, Header, and Meat & Seafood.
+    Sage...
+    Parker...
+    McKenzie created the footer, the following pages, Deli, Grocery, and Sign In, as well as the CSS pages 
+    associate with those files. I also created signin.php. 
