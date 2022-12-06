@@ -36,3 +36,15 @@ th, tr{
 tr:hover {
     background-color: rgb(147, 192, 255);
 }
+
+.socialicons{
+    height: 5vh;
+}
+
+.appicons{
+    height: 5vh;
+}
+
+.mainmacklogo{
+    height: 15vh;
+}
