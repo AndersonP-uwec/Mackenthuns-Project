@@ -37,6 +37,9 @@ You could also use JSON format to implement this feature.
 
 
 Critique:
+
+
+Comments:
 Members of the class suggested we list items that Mackenthun's sells. To incorperate this, we provided
 names of the manufacturer's / brands of products we sell on some of our department pages such as
 Floral and Gifts, Grocery, and Meat and Seafood. We also provide a listing of the deli catering options
