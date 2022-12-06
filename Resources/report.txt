@@ -20,7 +20,7 @@ Clicking on external links must open a new tab or window rather than replace you
 //social media icon links + weekly ads 
 
 4. Your site must include at least one animation, powered either by CSS or JavaScript.
-// hover animation for directory (DONE)
+// hover animation for cart in header (DONE)
 
 5. Your site should be able to use either MySQL or SQLite databases for storing and retrieving data. 
 You could also use JSON format to implement this feature. 
@@ -37,7 +37,23 @@ You could also use JSON format to implement this feature.
 
 
 Critique:
+        Overall the website looks very professional and attractive. The shopping cart 'wiggle' animation is cute.
+    Formatting the directory from most used/well known pages to the least would make sense in this situation. Most 
+    customers use the website to look at the deli page/menus and to order cakes online, so it would make sense to
+    have those be at the top of the directory. 
+        Regarding the other pages, I like how simple they are. They have the neccessary info that one would need
+    when reading about our departments. Below are some minor comments based on specific pages:
+    Bakery- show off the more simple products that we bake, in addition to what is there currently. For example, 
+    you could add simple pictures of our bread? The bottom right picture is stretched and looks a bit off.
+    Dairy- a bit minimal, but does what it should do
+    Deli- could use actual picture of people that work in that department to make it personal?
+    Catering- footer doesn't go the fill the full width of the page?
+    Floral- add pictures of more flowers?
+    Grocery- formatted differently, but not bad. All department pages should look similar, not just a few looking 
+    different from the majority.
+    Produce- also formatted differently. Short and to the point. Could add more about where produce is grown?
 
+    Great work!
 
 Comments:
 Members of the class suggested we list items that Mackenthun's sells. To incorperate this, we provided
