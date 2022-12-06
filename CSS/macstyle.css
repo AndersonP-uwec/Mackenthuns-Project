@@ -34,7 +34,7 @@ p{
 .mainmackslogo{
     display: float;
     float: left;
-    height: 70%;
+    height: 80px;
 } 
 
 .headerbuttons{
@@ -317,10 +317,9 @@ button{
         position:relative;
         display: flex;
         align-items: center;
-        float: left;
         bottom: 0em;
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: space-around;
+        flex-wrap:wrap;
         line-height: 20pt;
     }
 
@@ -357,10 +356,23 @@ button{
         height: 20vh;
         position:relative;
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         box-shadow: 0 15px 17px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
+    }
+
+    .footer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5%;
+    }
+
+    .footeritems{
+        flex: 0 1 99%;
+        margin-bottom: 2em;
+        align-items: center;
     }
 }
