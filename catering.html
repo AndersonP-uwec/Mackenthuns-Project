@@ -8,6 +8,7 @@
     <link rel = "icon" href = "Images/Favicon/favicon.ico">
     <link rel = "stylesheet" href = "CSS/macstyle.css"> 
     <link rel = "stylesheet" href = "CSS/catering.css">
+    <script defer src= "JSON/menu.js"></script>
 </head>
 <body>
     <div class = "container">
@@ -38,6 +39,16 @@
 
         <div class = "depbody">
             <h1>Interested in Getting an Event Catered? Fill out this Form!</h1>
+
+            <div id="menu">
+                <h1>Click to See our Menu!</h1>    
+                <button onclick="convertJsonToHtmlTable()">Menu</button>  
+                <br>
+                <br>
+                <table id="display_json_data" ></table>
+            </div>
+
+
             <div class="catering">
             <form action = "PHP/catering_order.php" method = "post">
                 <label for="odate">Today's Date: </label><br>
@@ -83,7 +94,7 @@
                 <input type="text" id="box" name="box"><br>
                 <label for="diet">Any Dietary Restrictions?</label><br>
                 <input type="text" id="diet" name="diet"><br>
-                <input type="submit" value="Submit">
+                <button type="submit" value="Submit">order</button>
 
             </form>
             </div>
