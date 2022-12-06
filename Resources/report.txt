@@ -52,10 +52,10 @@ Forms:
     signin.html 
 
 Contributions:
-    We worked together on the Directory page, Header, and Meat & Seafood.
+    We worked together on the Directory page, Header, and Meat & Seafood, and in editing all the files.
     * Sage created the department cards in the directory, linked our php files to enable SQL database data retrieval,
     and created the following pages: Bakery, Cake Order, Floral and Gifts, and Produce as well as the CSS files
     associated with these pages
-    * Parker...
+    * Parker created catering.html, dairy.html, and frozen.html, as well as the css and php files for those pages.
     * McKenzie created the footer, the following pages, Deli, Grocery, and Sign In, as well as the CSS pages 
     associate with those files. I also created signin.php. 
