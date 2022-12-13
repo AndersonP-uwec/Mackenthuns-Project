@@ -75,3 +75,12 @@ Contributions:
     * Parker created catering.html, dairy.html, and frozen.html, as well as the css and php files for those pages.
     * McKenzie created the footer, the following pages, Deli, Grocery, and Sign In, as well as the CSS pages 
     associate with those files. I also created signin.php. 
+
+
+Feedback NEW 
+* make the password not viewable when inserted. Type = password.
+* make it so when you insert forms it brings you to a neat page that says form submission successful. 
+The page should have a header that leads back to directory.
+
+Last TO DO:
+* check that pages can be html / css validated.
