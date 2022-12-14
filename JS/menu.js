@@ -56,4 +56,6 @@ const convertJsonToHtmlTable = () => {
     //Append the table header and all records
     var table=document.getElementById("display_json_data");
     table.innerHTML=headerRowHTML + allRecordsHTML;
+
 }
+

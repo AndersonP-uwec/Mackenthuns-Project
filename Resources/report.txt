@@ -78,7 +78,7 @@ Contributions:
 
 
 Feedback NEW 
-* make the password not viewable when inserted. Type = password.
+* make the password not viewable when inserted. Type = password.* DONE
 * make it so when you insert forms it brings you to a neat page that says form submission successful. 
 The page should have a header that leads back to directory.
 
