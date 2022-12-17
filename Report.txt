@@ -62,7 +62,7 @@ Floral and Gifts, Grocery, and Meat and Seafood. We also provide a listing of th
 on our catering order page.
 
 Forms:
-    Our footer has a form to sign up for email updates.
+    Our footer has a form to sign up form for email updates.
     deli.html has a form for catering.
     bakery.html has a cake order form.
     Our header has My Account which links to our sign in page, signin.html
