@@ -30,7 +30,7 @@ You could also use JSON format to implement this feature.
 6. BONUS POINTS: If you implement different functionality based on login credentials 
 (such as administrators, users) you will be receiving 5 extra points. 
 (Total is 40 points)
-/// sort of login (DONE)
+// we implemented an email and password sign in form but we do not have any login/logout functionality
 
 7. You should address the comments and feedback from Project 1 in this Project 2.
 // we have json catering table and ordering (products listings) and products listings in floral and gifts.
@@ -80,9 +80,8 @@ Contributions:
 Feedback NEW 
 * make it so when you insert forms it brings you to a neat page that says form submission successful. 
 The page should have a header that leads back to directory.
+* password feild for sign in (DONE)
 
-Last TO DO:
-* check that pages can be html / css validated.
 
 Changes After Presentation:
 * Password field for sign in now doesn't show password
