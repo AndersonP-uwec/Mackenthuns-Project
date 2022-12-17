@@ -85,4 +85,4 @@ The page should have a header that leads back to directory. (DONE)
 
 Changes After Presentation:
 * Password field for sign in now doesn't show password
-* all submission forms with bring you to the submission page instead of a blank screen
+* all submission forms bring you to the submission page instead of a blank screen

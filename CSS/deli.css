@@ -41,6 +41,10 @@
     font-family: lato;
 } 
 
+.darkbutton:visited{
+    color: white;
+}
+
 .biggerdarkbutton{ 
     background-color: #406D2C; 
     border: none;

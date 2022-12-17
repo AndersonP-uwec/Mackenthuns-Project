@@ -1,7 +1,29 @@
+.footer{
+    bottom: 0;
+}
+
+.depbody{
+    height: 59vh;
+    text-align: center;
+    vertical-align: middle;
+    color: #54595F;
+}
+
+.macksapple{
+    padding: 3%;
+    height: 50%;
+}
+
 .socialicons{
     height: 5vh;
 }
 
 .appicons{
     height: 5vh;
+}
+
+@media screen and (max-width: 980px) {
+    .macksapple{
+        display: none;
+    }
 }
