@@ -79,9 +79,10 @@ Contributions:
 
 Feedback NEW 
 * make it so when you insert forms it brings you to a neat page that says form submission successful. 
-The page should have a header that leads back to directory.
+The page should have a header that leads back to directory. (DONE)
 * password feild for sign in (DONE)
 
 
 Changes After Presentation:
 * Password field for sign in now doesn't show password
+* all submission forms with bring you to the submission page instead of a blank screen
