@@ -65,7 +65,7 @@ Forms:
     Our footer has a form to sign up form for email updates.
     deli.html has a form for catering.
     bakery.html has a cake order form.
-    Our header has My Account which links to our sign in page, signin.html
+    Our header has My Account which links to our sign in form, signin.html
 
 Contributions:
     We worked together on the Directory page, Header, and Meat & Seafood, and in editing all the files.
